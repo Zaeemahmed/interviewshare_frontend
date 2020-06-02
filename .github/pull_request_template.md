@@ -23,3 +23,10 @@ Please take a moment to tell us about your choices. Delete this if you have noth
 
 -   [ ] added / updated tests
 -   [ ] `npm install` – for new dependencies
+-   [ ] Translations (No inline texts)
+-   [ ] Proptypes Defined
+-   [ ] Atomic components
+-   [ ] Logical naming
+-   [ ] Tests written
+-   [ ] (optional) Created Mockdata
+-   [ ] (optional) Documentation written, if needed
