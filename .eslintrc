@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "react-app",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+
+  "rules": {
+    "no-template-curly-in-string": "warn",
+    "react/jsx-curly-brace-presence": ["warn", { "props": "never", "children": "never" }],
+    "import/order": ["warn", {
+      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+      "pathGroups": [{ "pattern": "@/**", "group": "internal" }],
+      "newlines-between": "never"
+    }],
+    "import/no-duplicates": ["warn"],
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": ["**/*.test.js", "**/setupTests.js"]
+    }],
+    "react/style-prop-object": "off", // confused by <FormattedNumber style="currency" />
+  }
+}

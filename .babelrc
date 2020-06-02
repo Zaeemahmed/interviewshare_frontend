@@ -1,0 +1,12 @@
+{
+  "presets": ["react-app"],
+  "plugins": [
+    "babel-plugin-styled-components",
+    ["react-intl-auto", {
+      "removePrefix": "src.ui.components"
+    }],
+    ["react-intl", {
+      "messagesDir": "./translations/messages/"
+    }]
+  ]
+}

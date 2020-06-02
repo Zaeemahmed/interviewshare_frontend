@@ -1,0 +1,20 @@
+name: JavaScript workflow
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1 ## Github Action ??
+      - name: "MyCustom Node12 Server"
+        uses: actions/setup-node@v1 ## Github Action ??
+        with:
+          node-version: "12.x"
+      - name: "npm install, and test"
+        run: |
+          npm install
+          npm test
+        env:
+          CI: true ## optional
