@@ -1,35 +1,86 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Box } from '../../../components/Base/Base';
 
-export default function IconButtonBig({ to, children, newTab = false }) {
+export default function IconButtonBig({}) {
     return (
-        <Box
-            as={Link}
-            to={to}
-            target={newTab ? '_blank' : '_self'}
-            css={`
-                text-decoration: none;
-            `}
-        >
+        <>
             <Box
-                as="div"
-                width="100%"
-                minHeight="100%"
-                css={`
-                    box-shadow: 0px 0px 6px #0cd58c;
-                `}
-                bg="#0DE99A"
-                borderRadius="12px"
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                color="#222222"
-                fontSize="18px"
-                fontWeight="500"
+                as="a"
+                target="_blank"
+                href="https://www.buymeacoffee.com/edes21"
+                padding="7px 15px 7px 10px "
+                lineHeight="35px "
+                height="35px"
+                display="inline-flex "
+                color="#ffffff "
+                backgroundColor="#31C4BF"
+                borderRadius="5px"
+                border="1px solid transparent"
+                padding="7px 15px 7px 10px "
+                fontSize="20px "
+                letterSpacing="0.6px "
+                boxShadow="0px 1px 2px rgba(190, 190, 190, 0.5) "
+                margin="0 auto "
+                fontFamily="'Arial', cursive"
+                boxSizing="border-box "
+                textDecoration="none"
+                marginTop="20px"
             >
-                {children}
+                <Box
+                    as="img"
+                    src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+                    alt="Donate"
+                    height="34px "
+                    width="35px "
+                    marginBottom="1px "
+                    boxShadow="none "
+                    border="none "
+                    verticalAlign="middle"
+                ></Box>
+
+                <Box as="span" marginLeft="5px" fontSize="19px ">
+                    Donate
+                </Box>
             </Box>
-        </Box>
+
+            <Box
+                as="a"
+                target="_blank"
+                href="https://www.paypal.me/ssulce"
+                padding="7px 15px 7px 10px "
+                lineHeight="35px "
+                height="35px"
+                display="inline-flex "
+                color="#ffffff "
+                backgroundColor="#31C4BF"
+                borderRadius="5px"
+                border="1px solid transparent"
+                padding="7px 15px 7px 10px "
+                fontSize="20px "
+                letterSpacing="0.6px "
+                boxShadow="0px 1px 2px rgba(190, 190, 190, 0.5) "
+                margin="0 auto "
+                fontFamily="'Arial', cursive"
+                boxSizing="border-box "
+                textDecoration="none"
+                marginTop="20px"
+            >
+                <Box
+                    as="img"
+                    src="https://image.flaticon.com/icons/png/512/246/246179.png"
+                    alt="Pay"
+                    height="34px "
+                    width="35px "
+                    marginBottom="1px "
+                    boxShadow="none "
+                    border="none "
+                    verticalAlign="middle"
+                ></Box>
+
+                <Box as="span" marginLeft="5px" fontSize="19px ">
+                    Pay
+                </Box>
+            </Box>
+        </>
     );
 }

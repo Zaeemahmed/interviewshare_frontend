@@ -10,14 +10,23 @@ export default function Footer() {
             left="0"
             bottom="0"
             width="100%"
-            height="40px"
-            bg="#191919"
-            fontSize="20px"
             p="10px 0"
             textAlign="center"
             zIndex="10"
         >
-            <LinkTextMeeting />
+            <Box
+                as="button"
+                width="80%"
+                padding="10px 0"
+                borderRadius="10px"
+                border="none"
+                backgroundColor="#31C4BF"
+                fontSize="15px"
+                color="#3C3E3F"
+                fontWeight="900"
+            >
+                Start Recording
+            </Box>
         </Box>
     );
 }

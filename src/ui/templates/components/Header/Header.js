@@ -13,7 +13,6 @@ export default function Header({ p }) {
             textAlign="center"
             alignItems="center"
             justifyContent="space-between"
-            bg="darkgrey"
         >
             <TextLogo />
             <HeaderMenu />

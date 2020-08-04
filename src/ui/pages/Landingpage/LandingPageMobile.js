@@ -10,25 +10,17 @@ export default function LandingPageMobile() {
     return (
         <DeviceProvider>
             <BackgroundLayerMobile>
-                <Box
-                    zIndex={2}
-                    p="0"
-                    textAlign="center"
-                    position="absolute"
-                    bottom="15px"
-                    minHeigth="600px"
-                    maxWidth="calc(100% - 40px);"
-                    width="100%"
-                    left="50%"
-                    css={`
-                        transform: translateX(-50%);
-                    `}
-                >
-                    <TextWelcome />
-                    <Box height="50px" width="100%" mt="25px">
-                        <IconButtonBig to="/achievements">
-                            <FormattedMessage defaultMessage="Learn more" />
-                        </IconButtonBig>
+                <Box as="div" display="flex">
+                    <IconButtonBig></IconButtonBig>
+                </Box>
+
+                <Box as="div" marginTop="190px" marginLeft="30px">
+                    <Box as="h1" color="#31C4BF">
+                        Welcome
+                    </Box>
+
+                    <Box as="p" fontSize="15px">
+                        Let's start recording your last phone interview
                     </Box>
                 </Box>
             </BackgroundLayerMobile>

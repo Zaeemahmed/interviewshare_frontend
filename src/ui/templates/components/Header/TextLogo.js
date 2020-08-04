@@ -13,7 +13,7 @@ export default function TextLogo() {
         >
             <Text
                 as="h1"
-                color="green"
+                color="#31C4BF"
                 fontSize={{
                     _: '19px',
                     sm: '19px',
@@ -32,7 +32,7 @@ export default function TextLogo() {
                 }}
                 fontWeight="400"
             >
-                Maximilian Garmatsch
+                ISA
             </Text>
         </Box>
     );
