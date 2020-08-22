@@ -13,6 +13,7 @@ import Achievements from './pages/Achievements/Achievements';
 import ForYouIWill from './pages/ForYouIWill/ForYouIWill';
 import LetsGetStarted from './pages/LetsGetStarted/LetsGetStarted';
 import DownloadCV from './pages/Download/DownloadCV';
+import Shop from './pages/Shop/Shop'
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
@@ -25,6 +26,9 @@ export default function App() {
                         <Switch>
                             <Route exact path="/">
                                 <Landingpage />
+                            </Route>
+                            <Route exact path="/shop">
+                                <Shop />
                             </Route>
                             <Route path="/impressum">
                                 <Impressum />

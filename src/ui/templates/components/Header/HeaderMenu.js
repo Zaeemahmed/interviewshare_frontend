@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Flex, Box } from '../../../components/Base/Base';
-import Icon from '../../../components/PortfolioIcons/Icon';
-import { SizeContext } from '../../../../context/SizeContext';
-import LinkTextMeeting from '../../../components/LinkTextMeeting';
-
+import {Link} from 'react-router-dom'
 export default function HeaderMenu() {
     return (
         <Flex alignItems="center">
             <Box
-                as="button"
+                as={Link}
+                to='/registration'
                 border="none"
                 padding="6px 25px"
                 marginRight="10px"
@@ -19,9 +17,8 @@ export default function HeaderMenu() {
             >
                 Register
             </Box>
-
             <Box
-                as="button"
+                as={Link}
                 border="none"
                 padding="6px 25px"
                 borderRadius="10px"
@@ -34,3 +31,4 @@ export default function HeaderMenu() {
         </Flex>
     );
 }
+
