@@ -14,7 +14,6 @@ import ForYouIWill from './pages/ForYouIWill/ForYouIWill';
 import LetsGetStarted from './pages/LetsGetStarted/LetsGetStarted';
 import DownloadCV from './pages/Download/DownloadCV';
 import Shop from './pages/Shop/Shop';
-import EventSetUp from './pages/EventSetup/EventSetup';
 import EventSetup from './pages/EventSetup/EventSetup';
 
 export default function App() {
