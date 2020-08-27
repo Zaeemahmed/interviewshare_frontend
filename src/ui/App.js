@@ -13,7 +13,9 @@ import Achievements from './pages/Achievements/Achievements';
 import ForYouIWill from './pages/ForYouIWill/ForYouIWill';
 import LetsGetStarted from './pages/LetsGetStarted/LetsGetStarted';
 import DownloadCV from './pages/Download/DownloadCV';
-import Shop from './pages/Shop/Shop'
+import Shop from './pages/Shop/Shop';
+import EventSetUp from './pages/EventSetup/EventSetup';
+import EventSetup from './pages/EventSetup/EventSetup';
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
@@ -22,6 +24,7 @@ export default function App() {
         <ErrorBoundary>
             <ThemeProvider theme={theme}>
                 <LocaleProvider>
+                    <AppStyle/>
                     <SizeContext.Provider value={isDesktop}>
                         <Switch>
                             <Route exact path="/">
@@ -56,6 +59,9 @@ export default function App() {
                             </Route>
                             <Route path="/lebenslauf">
                                 <DownloadCV />
+                            </Route>
+                            <Route path="/eventSetup">
+                                <EventSetup/>
                             </Route>
                         </Switch>
                     </SizeContext.Provider>
