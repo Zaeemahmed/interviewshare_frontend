@@ -42,6 +42,12 @@ const ellipStyle = `
     white-space: nowrap;
 `;
 
+export const Button = styled(Box)``;
+Button.defaultProps = {
+    as: 'button',
+    borderRadius: '10px',
+};
+
 export const Text = forwardRef((props, ref) => {
     const { ellipsis, ...rest } = props;
     return <Box as="span" css={ellipsis && ellipStyle} ref={ref} {...rest} />;

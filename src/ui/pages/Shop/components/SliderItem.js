@@ -1,9 +1,8 @@
 import React from 'react';
-import { Box } from '../../../components/Base/Base';
-export default function SliderItem({ children, imageSrc, title,price }) {
+import { Box, Text, Button } from '../../../components/Base/Base';
+export default function SliderItem({ children, imageSrc, title, price }) {
     return (
         <Box
-            as="div"
             width="100%"
             height="100%"
             display="flex"
@@ -19,25 +18,23 @@ export default function SliderItem({ children, imageSrc, title,price }) {
                 borderRadius="10px"
                 boxShadow="0 10px 10px"
             ></Box>
-            <Box as="h1" color="white">
+            <Text as="h1" color="white">
                 {title}
-            </Box>
-            <Box as="h2" color="white">
+            </Text>
+            <Text as="h2" color="white">
                 {price}$
-            </Box>
-            <Box as="p" color="red" padding="0px" width="80%">
+            </Text>
+            <Text as="p" color="red" padding="0px" width="80%">
                 {children}
-            </Box>
+            </Text>
 
-            <Box
-                as="button"
+            <Button
                 padding="10px 90px"
                 fontSize="20px"
-                borderRadius="10px"
                 backgroundColor="dodgerblue"
             >
                 Share
-            </Box>
+            </Button>
         </Box>
     );
 }
