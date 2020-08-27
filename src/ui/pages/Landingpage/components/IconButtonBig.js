@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from '../../../components/Base/Base';
 import {Link} from 'react-router-dom'
 
-export default function IconButtonBig({}) {
+export default function IconButtonBig() {
     return (
         <>
             <Box
@@ -17,7 +17,7 @@ export default function IconButtonBig({}) {
                 backgroundColor="#31C4BF"
                 borderRadius="5px"
                 border="1px solid transparent"
-                padding="7px 15px 7px 10px "
+                padding="7px 15px 7px 10px"
                 fontSize="20px "
                 letterSpacing="0.6px "
                 boxShadow="0px 1px 2px rgba(190, 190, 190, 0.5) "

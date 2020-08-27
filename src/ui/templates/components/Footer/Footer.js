@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box } from '../../../components/Base/Base';
-import LinkTextMeeting from '../../../components/LinkTextMeeting';
 
 export default function Footer() {
     return (

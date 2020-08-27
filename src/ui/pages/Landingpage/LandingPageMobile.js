@@ -1,8 +1,6 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import DeviceProvider from '../../../helpers/DeviceProvider';
 import { Box } from '../../components/Base/Base';
-import TextWelcome from './components/TextWelcome';
 import BackgroundLayerMobile from './components/BackgroundLayerMobile';
 import IconButtonBig from './components/IconButtonBig';
 
