@@ -15,6 +15,7 @@ import LetsGetStarted from './pages/LetsGetStarted/LetsGetStarted';
 import DownloadCV from './pages/Download/DownloadCV';
 import Shop from './pages/Shop/Shop';
 import EventSetup from './pages/EventSetup/EventSetup';
+import Search from "./pages/Search/Search";
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
@@ -61,6 +62,9 @@ export default function App() {
                             </Route>
                             <Route path="/eventSetup">
                                 <EventSetup/>
+                            </Route>
+                            <Route path="/search">
+                                <Search/>
                             </Route>
                         </Switch>
                     </SizeContext.Provider>

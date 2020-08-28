@@ -1,16 +1,19 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
-import Profile from './Profile/Profile';
-import EventSetupForm from './EventSetupForm/EventSetupForm';
+import { Box } from '../../components/Base/Base';
+import SearchForm from './SearchForm';
+import SearchHeading from './components/SearchHeading';
 
-function EventSetup() {
+
+const Search = () => {
     return (
-        <Fragment>
+        <Box>
             <Grid
                 container
                 style={{
                     background: '#E5E5E5',
                     margin: '1rem 0',
+                    padding:'1rem 0'
                 }}
                 justify="center"
             >
@@ -25,12 +28,14 @@ function EventSetup() {
                         padding: '1rem',
                     }}
                 >
-                    <Profile />
-                    <EventSetupForm />
+                    <SearchHeading />
+                    <Box>
+                        <SearchForm/>
+                    </Box>
                 </Grid>
             </Grid>
-        </Fragment>
+        </Box>
     );
-}
+};
 
-export default EventSetup;
+export default Search;
