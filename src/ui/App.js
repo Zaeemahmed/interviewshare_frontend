@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
+import { voiceRecorder } from 'voicerecorder';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import ErrorBoundary from '../helpers/ErrorBoundary';
 import LocaleProvider from '../helpers/LocaleProvider';
@@ -15,6 +16,8 @@ import LetsGetStarted from './pages/LetsGetStarted/LetsGetStarted';
 import DownloadCV from './pages/Download/DownloadCV';
 import Shop from './pages/Shop/Shop';
 import EventSetup from './pages/EventSetup/EventSetup';
+import UserSearch from './pages/UserSearch/UserSearch';
+import CompanyRegistration from './pages/CompanyRegistration/CompanyRegistration';
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
@@ -23,7 +26,7 @@ export default function App() {
         <ErrorBoundary>
             <ThemeProvider theme={theme}>
                 <LocaleProvider>
-                    <AppStyle/>
+                    <AppStyle />
                     <SizeContext.Provider value={isDesktop}>
                         <Switch>
                             <Route exact path="/">
@@ -60,7 +63,13 @@ export default function App() {
                                 <DownloadCV />
                             </Route>
                             <Route path="/eventSetup">
-                                <EventSetup/>
+                                <EventSetup />
+                            </Route>
+                            <Route path="/userSearch">
+                                <UserSearch />
+                            </Route>
+                            <Route path="/companyRegistration">
+                                <CompanyRegistration />
                             </Route>
                         </Switch>
                     </SizeContext.Provider>

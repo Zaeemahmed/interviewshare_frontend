@@ -7,7 +7,7 @@ export default function UserOccupation() {
             variant="h6"
             style={{
                 fontFamily: 'Roboto',
-                color: '#777D7D',
+                color: '#A1A5A5',
                 letterSpacing: '0.02em',
                 fontSize: '1.1rem',
             }}
