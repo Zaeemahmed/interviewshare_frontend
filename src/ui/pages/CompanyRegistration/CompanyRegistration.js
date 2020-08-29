@@ -1,36 +1,41 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
-import Profile from './Profile/Profile';
-import EventSetupForm from './EventSetupForm/EventSetupForm';
+import { Box } from '../../components/Base/Base';
+import RegistrationHeading from './components/RegistrationHeading';
+import CompanyRegistrationForm from './CompanyRegistrationForm';
 
-function EventSetup() {
+const CompanyRegistration = () => {
     return (
-        <Fragment>
+        <Box>
             <Grid
                 container
                 style={{
                     background: '#E5E5E5',
                     margin: '1rem 0',
+                    padding: '1rem 0',
                 }}
                 justify="center"
             >
                 <Grid
                     item
-                    sm={8}
+                    sm={7}
                     xs={10}
                     md={5}
+                    lg={4}
                     style={{
                         background: '#FFF',
                         borderRadius: '10px',
                         padding: '1rem',
                     }}
                 >
-                    <Profile />
-                    <EventSetupForm />
+                    <RegistrationHeading/>
+                    <Box>
+                        <CompanyRegistrationForm />
+                    </Box>
                 </Grid>
             </Grid>
-        </Fragment>
+        </Box>
     );
-}
+};
 
-export default EventSetup;
+export default CompanyRegistration;

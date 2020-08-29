@@ -9,7 +9,7 @@ export default function Username() {
         fontFamily: "PT Serif",
         fontWeight: "bold",
         letterSpacing: "0.08em",
-        color:"#E0B152"
+        color:"#3C3E3F"
       }}
     >
       James Smith
