@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '../../../components/Base/Base';
 
-const SearchHeading = () => {
+const UserSearchTop = () => {
     return (
         <Box
             as="h4"
@@ -16,4 +16,4 @@ const SearchHeading = () => {
     );
 };
 
-export default SearchHeading;
+export default UserSearchTop;

@@ -5,7 +5,7 @@ import { Grid, Button } from '@material-ui/core';
 import TextInput from '../../components/Formik/TextInput';
 import { Flex, Box } from '../../components/Base/Base';
 
-const SearchForm = () => {
+const CompanyRegistrationForm = () => {
     const initialValues = {
         companyName: '',
         address: '',
@@ -27,7 +27,7 @@ const SearchForm = () => {
     });
     return (
         <Grid container>
-            <Grid item xs={12} container>
+            <Grid item xs={12}>
                 <Box marginLeft="3rem" width="85%">
                     <Formik
                         initialValues={initialValues}
@@ -88,4 +88,4 @@ const SearchForm = () => {
     );
 };
 
-export default SearchForm;
+export default CompanyRegistrationForm;

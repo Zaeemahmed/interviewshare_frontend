@@ -30,7 +30,7 @@ const EventSetupForm = () => {
     });
     return (
         <Grid container>
-            <Grid item xs={12} container >
+            <Grid item xs={12}>
                 <Box width="95%" marginLeft="1rem">
                     <Formik
                         initialValues={initialValues}

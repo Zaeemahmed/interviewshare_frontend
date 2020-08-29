@@ -6,33 +6,29 @@ import CompanyRegistrationForm from './CompanyRegistrationForm';
 
 const CompanyRegistration = () => {
     return (
-        <Box>
+        <Grid
+            container
+            style={{
+                margin: '1rem 0',
+            }}
+            justify="center"
+        >
             <Grid
-                container
+                item
+                xs={10}
+                sm={7}
+                md={5}
+                lg={3}
                 style={{
-                    margin: '1rem 0',
+                    background: '#FFF',
+                    borderRadius: '10px',
+                    padding: '1rem',
                 }}
-                justify="center"
             >
-                <Grid
-                    item
-                    sm={7}
-                    xs={10}
-                    md={5}
-                    lg={3}
-                    style={{
-                        background: '#FFF',
-                        borderRadius: '10px',
-                        padding: '1rem',
-                    }}
-                >
-                    <RegistrationHeading/>
-                    <Box>
-                        <CompanyRegistrationForm />
-                    </Box>
-                </Grid>
+                <RegistrationHeading />
+                <CompanyRegistrationForm />
             </Grid>
-        </Box>
+        </Grid>
     );
 };
 

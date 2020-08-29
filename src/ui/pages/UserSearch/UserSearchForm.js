@@ -6,7 +6,7 @@ import TextInput from '../../components/Formik/TextInput';
 import { Flex, Box } from '../../components/Base/Base';
 import DatePicker from '../../components/Formik/DatePicker';
 
-const SearchForm = () => {
+const UserSearchForm = () => {
     const initialValues = {
         jobTitle: '',
         location: '',
@@ -24,9 +24,9 @@ const SearchForm = () => {
             .nullable(),
     });
     return (
-        <Grid container mt='1rem'>
-            <Grid item xs={12} container>
-                <Box width="95%" marginLeft="1rem" >
+        <Grid container mt="1rem">
+            <Grid item xs={12}>
+                <Box width="95%" marginLeft="1rem">
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
@@ -80,4 +80,4 @@ const SearchForm = () => {
     );
 };
 
-export default SearchForm;
+export default UserSearchForm;

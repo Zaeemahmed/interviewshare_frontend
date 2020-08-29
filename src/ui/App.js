@@ -16,7 +16,7 @@ import LetsGetStarted from './pages/LetsGetStarted/LetsGetStarted';
 import DownloadCV from './pages/Download/DownloadCV';
 import Shop from './pages/Shop/Shop';
 import EventSetup from './pages/EventSetup/EventSetup';
-import Search from './pages/Search/Search';
+import UserSearch from './pages/UserSearch/UserSearch';
 import CompanyRegistration from './pages/CompanyRegistration/CompanyRegistration';
 
 export default function App() {
@@ -65,8 +65,8 @@ export default function App() {
                             <Route path="/eventSetup">
                                 <EventSetup />
                             </Route>
-                            <Route path="/search">
-                                <Search />
+                            <Route path="/userSearch">
+                                <UserSearch />
                             </Route>
                             <Route path="/companyRegistration">
                                 <CompanyRegistration />

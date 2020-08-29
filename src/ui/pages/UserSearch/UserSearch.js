@@ -1,10 +1,9 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { Box } from '../../components/Base/Base';
-import SearchForm from './SearchForm';
-import SearchHeading from './components/SearchHeading';
+import UserSearchForm from './UserSearchForm';
+import UserSearchTop from './components/UserSearchTop';
 
-const Search = () => {
+const UserSearch = () => {
     return (
         <Grid
             container
@@ -25,11 +24,11 @@ const Search = () => {
                     padding: '1rem',
                 }}
             >
-                <SearchHeading />
-                <SearchForm />
+                <UserSearchTop/>
+                <UserSearchForm />
             </Grid>
         </Grid>
     );
 };
 
-export default Search;
+export default UserSearch;
