@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { Box } from '../../components/Base/Base';
 import RegistrationHeading from './components/RegistrationHeading';
 import CompanyRegistrationForm from './CompanyRegistrationForm';
 

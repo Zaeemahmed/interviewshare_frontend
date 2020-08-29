@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box } from '../../../components/Base/Base';
+import { Text } from '../../../components/Base/Base';
 
 const UserSearchTop = () => {
     return (
-        <Box
+        <Text
             as="h4"
             color="#3C3E3F"
             fontFamily="PT Serif"
@@ -12,7 +12,7 @@ const UserSearchTop = () => {
             marginLeft="1rem"
         >
             Search for your next candidate
-        </Box>
+        </Text>
     );
 };
 

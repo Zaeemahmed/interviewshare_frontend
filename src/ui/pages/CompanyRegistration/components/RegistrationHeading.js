@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box } from '../../../components/Base/Base';
+import { Text } from '../../../components/Base/Base';
 
 const RegistrationHeading = () => {
     return (
-        <Box>
-            <Box
+        <>
+            <Text
                 as="h4"
                 color="#3C3E3F"
                 fontFamily="PT Serif"
@@ -13,8 +13,8 @@ const RegistrationHeading = () => {
                 marginLeft="3rem"
             >
                 Search for your next candidate
-            </Box>
-            <Box
+            </Text>
+            <Text
                 as="p"
                 color="#A1A5A5"
                 fontFamily="Roboto"
@@ -22,8 +22,8 @@ const RegistrationHeading = () => {
                 marginLeft="3rem"
             >
                 Not public just for invoice
-            </Box>
-        </Box>
+            </Text>
+        </>
     );
 };
 

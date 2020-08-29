@@ -28,7 +28,7 @@ const CompanyRegistrationForm = () => {
     return (
         <Grid container>
             <Grid item xs={12}>
-                <Box marginLeft="3rem" width="85%">
+                <Box marginLeft="1rem" width="95%">
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
