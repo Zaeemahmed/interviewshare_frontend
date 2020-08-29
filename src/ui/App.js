@@ -23,7 +23,7 @@ export default function App() {
         <ErrorBoundary>
             <ThemeProvider theme={theme}>
                 <LocaleProvider>
-                    <AppStyle/>
+                    <AppStyle />
                     <SizeContext.Provider value={isDesktop}>
                         <Switch>
                             <Route exact path="/">
@@ -60,7 +60,7 @@ export default function App() {
                                 <DownloadCV />
                             </Route>
                             <Route path="/eventSetup">
-                                <EventSetup/>
+                                <EventSetup />
                             </Route>
                         </Switch>
                     </SizeContext.Provider>
