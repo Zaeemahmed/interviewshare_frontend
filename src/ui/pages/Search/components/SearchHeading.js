@@ -4,12 +4,12 @@ import { Box } from '../../../components/Base/Base';
 const SearchHeading = () => {
     return (
         <Box
-            as="h5"
+            as="h4"
             color="#3C3E3F"
             fontFamily="PT Serif"
             fontSize="1.5rem"
             letterSpacing="0.02em"
-            textAlign="center"
+            marginLeft="3rem"
         >
             Search for your next candidate
         </Box>

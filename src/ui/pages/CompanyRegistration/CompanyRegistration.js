@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { Box } from '../../components/Base/Base';
+import RegistrationHeading from './components/RegistrationHeading';
 import CompanyRegistrationForm from './CompanyRegistrationForm';
 
 const CompanyRegistration = () => {
@@ -17,15 +18,17 @@ const CompanyRegistration = () => {
             >
                 <Grid
                     item
-                    sm={8}
+                    sm={7}
                     xs={10}
                     md={5}
+                    lg={4}
                     style={{
                         background: '#FFF',
                         borderRadius: '10px',
                         padding: '1rem',
                     }}
                 >
+                    <RegistrationHeading/>
                     <Box>
                         <CompanyRegistrationForm />
                     </Box>

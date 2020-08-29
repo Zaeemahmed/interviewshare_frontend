@@ -22,6 +22,7 @@ const Search = () => {
                     sm={8}
                     xs={10}
                     md={5}
+                    lg={4}
                     style={{
                         background: '#FFF',
                         borderRadius: '10px',

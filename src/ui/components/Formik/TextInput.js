@@ -19,7 +19,7 @@ const TextInput = ({ label, name, placeholder, multiline, rows }) => {
                     backgroundColor: '#F5F5F5',
                     borderRadius: '10px',
                 }}
-                fullWidth={true}
+                fullWidth
                 multiline={multiline}
                 rows={rows ? rows : 1}
                 placeholder={placeholder}

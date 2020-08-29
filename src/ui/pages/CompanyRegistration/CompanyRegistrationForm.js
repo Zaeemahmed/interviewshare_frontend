@@ -3,8 +3,7 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { Grid, Button } from '@material-ui/core';
 import TextInput from '../../components/Formik/TextInput';
-import RegistrationHeading from './components/RegistrationHeading';
-import { Flex } from '../../components/Base/Base';
+import { Flex, Box } from '../../components/Base/Base';
 
 const SearchForm = () => {
     const initialValues = {
@@ -27,62 +26,63 @@ const SearchForm = () => {
         countryAndCity: Yup.string().required('country and city are required'),
     });
     return (
-        <Grid container spacing={3} justify="center">
-            <Grid item xs={10} md={9} lg={8} container>
-                <RegistrationHeading/>
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
-                >
-                    {({ errors, values }) => (
-                        <Form>
-                            <TextInput
-                                label="Company name"
-                                name="companyName"
-                                placeholder="Insert company name here"
-                                multiline={false}
-                            />
-                            <TextInput
-                                label="Address"
-                                name="address"
-                                placeholder="Insert company address here"
-                                multiline={false}
-                            />
-                            <TextInput
-                                label="Country and city"
-                                name="countryAndCity"
-                                placeholder="Insert country and city here"
-                                multiline={false}
-                            />
-                            <TextInput
-                                label="VAT (optional)"
-                                name="vatNumber"
-                                placeholder="Insert VAT number here"
-                                multiline={false}
-                            />
-                            <Flex mt="2.5rem" justifyContent="center">
-                                <Button
-                                    variant="contained"
-                                    type="submit"
-                                    style={{
-                                        width: '100%',
-                                        borderRadius: '29px',
-                                        background: '#2074D5',
-                                        color: '#fff',
-                                    }}
-                                >
-                                    CREATE ACCOUNT
-                                </Button>
-                            </Flex>
-                        </Form>
-                    )}
-                </Formik>
+        <Grid container>
+            <Grid item xs={12} container>
+                <Box marginLeft="3rem" width="85%">
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={(values, { setSubmitting }) => {
+                            setTimeout(() => {
+                                alert(JSON.stringify(values, null, 2));
+                                setSubmitting(false);
+                            }, 400);
+                        }}
+                    >
+                        {({ errors, values }) => (
+                            <Form>
+                                <TextInput
+                                    label="Company name"
+                                    name="companyName"
+                                    placeholder="Insert company name here"
+                                    multiline={false}
+                                />
+                                <TextInput
+                                    label="Address"
+                                    name="address"
+                                    placeholder="Insert company address here"
+                                    multiline={false}
+                                />
+                                <TextInput
+                                    label="Country and city"
+                                    name="countryAndCity"
+                                    placeholder="Insert country and city here"
+                                    multiline={false}
+                                />
+                                <TextInput
+                                    label="VAT (optional)"
+                                    name="vatNumber"
+                                    placeholder="Insert VAT number here"
+                                    multiline={false}
+                                />
+                                <Flex mt="2.5rem" justifyContent="center">
+                                    <Button
+                                        variant="contained"
+                                        type="submit"
+                                        style={{
+                                            width: '100%',
+                                            borderRadius: '29px',
+                                            background: '#2074D5',
+                                            color: '#fff',
+                                        }}
+                                    >
+                                        CREATE ACCOUNT
+                                    </Button>
+                                </Flex>
+                            </Form>
+                        )}
+                    </Formik>
+                </Box>
             </Grid>
         </Grid>
     );

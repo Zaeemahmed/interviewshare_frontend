@@ -29,60 +29,62 @@ const EventSetupForm = () => {
     });
     return (
         <Box mt="1rem">
-            <Grid container spacing={3} justify="center">
-                <Grid item xs={11} md={9} lg={8} container>
-                    <Formik
-                        initialValues={initialValues}
-                        validationSchema={validationSchema}
-                        onSubmit={(values, { setSubmitting }) => {
-                            setTimeout(() => {
-                                alert(JSON.stringify(values, null, 2));
-                                setSubmitting(false);
-                            }, 400);
-                        }}
-                    >
-                        {({ values, errors }) => (
-                            <Form style={{ width: '100%' }}>
-                                <TextInput
-                                    label="Name"
-                                    name="name"
-                                    placeholder="Enter your name here"
-                                    multiline={false}
-                                />
-                                <TextInput
-                                    label="Email"
-                                    name="email"
-                                    placeholder="example@gmail.com"
-                                    multiline={false}
-                                />
-                                <DatePicker
-                                    label="Schedule meeting (optional)"
-                                    name="date"
-                                />
-                                <TextInput
-                                    label="Message"
-                                    name="message"
-                                    placeholder="Enter Your message here"
-                                    multiline={true}
-                                    rows={4}
-                                />
-                                <Flex mt="2.5rem" justifyContent="center">
-                                    <Button
-                                        variant="contained"
-                                        type="submit"
-                                        style={{
-                                            width: '100%',
-                                            borderRadius: '29px',
-                                            background: '#2074D5',
-                                            color: '#fff',
-                                        }}
-                                    >
-                                        Contact Now
-                                    </Button>
-                                </Flex>
-                            </Form>
-                        )}
-                    </Formik>
+            <Grid container>
+                <Grid item xs={12} container>
+                    <Box width="95%" marginLeft="1rem">
+                        <Formik
+                            initialValues={initialValues}
+                            validationSchema={validationSchema}
+                            onSubmit={(values, { setSubmitting }) => {
+                                setTimeout(() => {
+                                    alert(JSON.stringify(values, null, 2));
+                                    setSubmitting(false);
+                                }, 400);
+                            }}
+                        >
+                            {({ values, errors }) => (
+                                <Form style={{ width: '100%' }}>
+                                    <TextInput
+                                        label="Name"
+                                        name="name"
+                                        placeholder="Enter your name here"
+                                        multiline={false}
+                                    />
+                                    <TextInput
+                                        label="Email"
+                                        name="email"
+                                        placeholder="example@gmail.com"
+                                        multiline={false}
+                                    />
+                                    <DatePicker
+                                        label="Schedule meeting (optional)"
+                                        name="date"
+                                    />
+                                    <TextInput
+                                        label="Message"
+                                        name="message"
+                                        placeholder="Enter Your message here"
+                                        multiline={true}
+                                        rows={4}
+                                    />
+                                    <Flex mt="2.5rem" justifyContent="center">
+                                        <Button
+                                            variant="contained"
+                                            type="submit"
+                                            style={{
+                                                width: '100%',
+                                                borderRadius: '29px',
+                                                background: '#2074D5',
+                                                color: '#fff',
+                                            }}
+                                        >
+                                            Contact Now
+                                        </Button>
+                                    </Flex>
+                                </Form>
+                            )}
+                        </Formik>
+                    </Box>
                 </Grid>
             </Grid>
         </Box>

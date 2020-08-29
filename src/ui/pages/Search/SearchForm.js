@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { Grid, Button } from '@material-ui/core';
 import TextInput from '../../components/Formik/TextInput';
-import { Flex } from '../../components/Base/Base';
+import { Flex, Box } from '../../components/Base/Base';
 import DatePicker from '../../components/Formik/DatePicker';
 
 const SearchForm = () => {
@@ -24,52 +24,57 @@ const SearchForm = () => {
             .nullable(),
     });
     return (
-        <Grid container spacing={3} justify="center">
-            <Grid item xs={10} md={9} lg={8} container>
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={(values, { setSubmitting }) => {
-                        setTimeout(() => {
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
-                        }, 400);
-                    }}
-                >
-                    {({ errors, values }) => (
-                        <Form>
-                            <TextInput
-                                label="Job Title"
-                                name="jobTitle"
-                                placeholder="Enter Job Title"
-                                multiline={false}
-                            />
-                            <TextInput
-                                label="Location"
-                                name="location"
-                                placeholder="Enter Location"
-                                multiline={false}
-                            />
+        <Grid container spacing={3}>
+            <Grid item xs={12} container>
+                <Box marginLeft="3rem" width="85%">
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={(values, { setSubmitting }) => {
+                            setTimeout(() => {
+                                alert(JSON.stringify(values, null, 2));
+                                setSubmitting(false);
+                            }, 400);
+                        }}
+                    >
+                        {({ errors, values }) => (
+                            <Form>
+                                <TextInput
+                                    label="Job Title"
+                                    name="jobTitle"
+                                    placeholder="Enter Job Title"
+                                    multiline={false}
+                                />
+                                <TextInput
+                                    label="Location"
+                                    name="location"
+                                    placeholder="Enter Location"
+                                    multiline={false}
+                                />
 
-                            <DatePicker label="Availibility Date" name="date" />
+                                <DatePicker
+                                    label="Availibility Date"
+                                    name="date"
+                                />
 
-                            <Flex mt="2.5rem" justifyContent="center">
-                                <Button
-                                    variant="contained"
-                                    type="submit"
-                                    style={{
-                                        width: '100%',
-                                        borderRadius: '29px',
-                                        background: '#2074D5',
-                                        color: '#fff',
-                                    }}
-                                >
-                                    Contact Now
-                                </Button>
-                            </Flex>
-                        </Form>
-                    )}
-                </Formik>
+                                <Flex mt="2.5rem" justifyContent="center">
+                                    <Button
+                                        variant="contained"
+                                        type="submit"
+                                        style={{
+                                            width: '100%',
+                                            borderRadius: '29px',
+                                            background: '#2074D5',
+                                            color: '#fff',
+                                        }}
+                                    >
+                                        Contact Now
+                                    </Button>
+                                </Flex>
+                            </Form>
+                        )}
+                    </Formik>
+                </Box>
             </Grid>
         </Grid>
     );
