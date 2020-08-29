@@ -9,7 +9,7 @@ const SearchHeading = () => {
             fontFamily="PT Serif"
             fontSize="1.5rem"
             letterSpacing="0.02em"
-            marginLeft="3rem"
+            marginLeft="1rem"
         >
             Search for your next candidate
         </Box>

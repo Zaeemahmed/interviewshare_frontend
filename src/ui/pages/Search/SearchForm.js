@@ -24,9 +24,9 @@ const SearchForm = () => {
             .nullable(),
     });
     return (
-        <Grid container spacing={3}>
+        <Grid container mt='1rem'>
             <Grid item xs={12} container>
-                <Box marginLeft="3rem" width="85%">
+                <Box width="95%" marginLeft="1rem" >
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
