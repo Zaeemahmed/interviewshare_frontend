@@ -14,7 +14,7 @@ const CompanyRegistrationForm = () => {
     };
     const validationSchema = Yup.object({
         companyName: Yup.string()
-            .min(3, 'company name with atleast 3 character')
+            .min(3, 'company name with at least 3 character')
             .required('company name is required'),
         address: Yup.string()
             .min(5, 'address with atleast 10 character is required')
