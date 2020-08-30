@@ -38,30 +38,6 @@ export default function App() {
                             <Route path="/impressum">
                                 <Impressum />
                             </Route>
-                            <Route path="/myteam">
-                                <MyTeam />
-                            </Route>
-                            <Route path="/intro">
-                                {() => {
-                                    window.location.href =
-                                        'https://calendly.com/maximilian-garmatsch/intro';
-                                }}
-                            </Route>
-                            <Route path="/achievements">
-                                <Achievements />
-                            </Route>
-                            <Route path="/foryouiwill">
-                                <ForYouIWill />
-                            </Route>
-                            <Route path="/letsgetstarted">
-                                <LetsGetStarted />
-                            </Route>
-                            <Route path="/cv">
-                                <DownloadCV />
-                            </Route>
-                            <Route path="/lebenslauf">
-                                <DownloadCV />
-                            </Route>
                             <Route path="/eventSetup">
                                 <EventSetup />
                             </Route>

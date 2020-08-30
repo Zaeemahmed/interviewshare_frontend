@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 import Popover from '@material-ui/core/Popover';
-import { Box } from '../../components/Base/Base';
+import { Box } from './Base';
 
 const InfoIconButton = ({ html }) => {
     const [anchorEl, setAnchorEl] = useState(null);
