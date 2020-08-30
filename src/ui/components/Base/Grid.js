@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Grid as MuiGrid } from '@material-ui/core';
 import {
