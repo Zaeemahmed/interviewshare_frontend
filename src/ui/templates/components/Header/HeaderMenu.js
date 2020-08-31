@@ -19,6 +19,7 @@ export default function HeaderMenu() {
             </Box>
             <Box
                 as={Link}
+                to="/login"
                 border="none"
                 padding="6px 25px"
                 borderRadius="10px"
