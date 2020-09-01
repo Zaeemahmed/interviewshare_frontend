@@ -1,7 +1,9 @@
 import React from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ApolloProvider } from '@apollo/client';
 import { Route, Switch } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import apolloClient from '../apollo/ApolloClient';
 import ErrorBoundary from '../helpers/ErrorBoundary';
 import LocaleProvider from '../helpers/LocaleProvider';
 import theme from '../config/theme';
@@ -12,40 +14,46 @@ import Shop from './pages/Shop/Shop';
 import EventSetup from './pages/EventSetup/EventSetup';
 import UserSearch from './pages/UserSearch/UserSearch';
 import CompanyRegistration from './pages/CompanyRegistration/CompanyRegistration';
+import CreateRecording from './pages/CreateRecording/CreateRecording';
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
 
     return (
         <ErrorBoundary>
-            <ThemeProvider theme={theme}>
-                <LocaleProvider>
-                    <AppStyle />
-                    <SizeContext.Provider value={isDesktop}>
-                        <Switch>
-                            <Route exact path="/">
-                                <Landingpage />
-                            </Route>
-                            <Route exact path="/shop">
-                                <Shop />
-                            </Route>
-                            <Route path="/impressum">
-                                <Impressum />
-                            </Route>
-                            <Route path="/eventSetup">
-                                <EventSetup />
-                            </Route>
-                            <Route path="/userSearch">
-                                <UserSearch />
-                            </Route>
-                            <Route path="/companyRegistration">
-                                <CompanyRegistration />
-                            </Route>
-                        </Switch>
-                    </SizeContext.Provider>
-                    <AppStyle />
-                </LocaleProvider>
-            </ThemeProvider>
+            <ApolloProvider client={apolloClient}>
+                <ThemeProvider theme={theme}>
+                    <LocaleProvider>
+                        <AppStyle />
+                        <SizeContext.Provider value={isDesktop}>
+                            <Switch>
+                                <Route exact path="/">
+                                    <Landingpage />
+                                </Route>
+                                <Route exact path="/shop">
+                                    <Shop />
+                                </Route>
+                                <Route path="/impressum">
+                                    <Impressum />
+                                </Route>
+                                <Route path="/eventSetup">
+                                    <EventSetup />
+                                </Route>
+                                <Route path="/userSearch">
+                                    <UserSearch />
+                                </Route>
+                                <Route path="/companyRegistration">
+                                    <CompanyRegistration />
+                                </Route>
+                                <Route path="/createRecording">
+                                    <CreateRecording />
+                                </Route>
+                            </Switch>
+                        </SizeContext.Provider>
+                        <AppStyle />
+                    </LocaleProvider>
+                </ThemeProvider>
+            </ApolloProvider>
         </ErrorBoundary>
     );
 }
