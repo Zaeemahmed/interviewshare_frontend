@@ -1,18 +1,25 @@
 import React from 'react';
 import { Field } from 'formik';
-import { TextField } from 'formik-material-ui';
+import { TextField } from '@material-ui/core';
 import { Text } from '../Base/Base';
 import FormControl from './FormControl';
 
-const TextInput = ({ label, name, placeholder, multiline, rows }) => {
+const TextInput = ({
+    label,
+    name,
+    placeholder,
+    multiline,
+    rows,
+    register,
+    error,
+}) => {
     return (
         <FormControl>
             <Text fontFamily="Roboto" letterSpacing="0.02rem" color="#777D7D">
                 {label}
             </Text>
-            <Field
+            <TextField
                 name={name}
-                component={TextField}
                 variant="outlined"
                 size="small"
                 style={{
@@ -23,6 +30,9 @@ const TextInput = ({ label, name, placeholder, multiline, rows }) => {
                 multiline={multiline}
                 rows={rows ? rows : 1}
                 placeholder={placeholder}
+                error={error ? true : false}
+                inputRef={register}
+                helperText={error ? error.message: ''}
             />
         </FormControl>
     );
