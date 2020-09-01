@@ -19,6 +19,6 @@ export const cacheUploadedRecording = (cache, { data }) => {
     const newRecording = data.upload_recording.returning[0];
     cache.writeQuery({
         query: recordings,
-        data: { event: [newRecording, ...existingRecordings.recording] },
+        data: { recording : [newRecording, ...existingRecordings.recording] },
     });
 };
