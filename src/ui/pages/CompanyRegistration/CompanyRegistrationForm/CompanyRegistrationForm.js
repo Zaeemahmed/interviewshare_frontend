@@ -1,57 +1,55 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers';
-import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
-import { Formik, Form } from 'formik';
 import { Grid, Button } from '@material-ui/core';
-import TextInput from '../../components/Formik/TextInput';
-import { Flex, Box } from '../../components/Base/Base';
-import DatePicker from '../../components/Formik/DatePicker';
+import TextInput from '../../../components/Formik/TextInput';
+import { Flex, Box } from '../../../components/Base/Base';
+import { validationSchema } from './ValidationSchema';
 
-const UserSearchForm = () => {
-    const validationSchema = Yup.object({
-        jobTitle: Yup.string()
-            .required('Job title is required')
-            .min(5, 'Job title with atleast 5 character'),
-        location: Yup.string()
-            .required('Location is required')
-            .min(5, 'Location with atleast 5 character is required'),
-        date: Yup.date().optional(),
-    });
+const CompanyRegistrationForm = () => {
     const { register, handleSubmit, errors } = useForm({
         mode: 'all',
         resolver: yupResolver(validationSchema),
     });
+
     const onSubmit = data => console.log(data);
     return (
-        <Grid container mt="1rem">
+        <Grid container>
             <Grid item xs={12}>
-                <Box width="95%" marginLeft="1rem">
+                <Box marginLeft="1rem" width="95%">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextInput
-                            label="Job Title"
-                            name="jobTitle"
-                            placeholder="Enter Job Title"
+                            label="Company name"
+                            name="companyName"
+                            placeholder="Insert company name here"
                             multiline={false}
                             register={register}
-                            error={errors.jobTitle}
+                            error={errors.companyName}
                         />
                         <TextInput
-                            label="Location"
-                            name="location"
-                            placeholder="Enter Location"
+                            label="Address"
+                            name="address"
+                            placeholder="Insert company address here"
                             multiline={false}
                             register={register}
-                            error={errors.location}
+                            error={errors.address}
                         />
-
-                        <DatePicker
-                            label="Availibility Date"
-                            name="date"
+                        <TextInput
+                            label="Country and city"
+                            name="countryAndCity"
+                            placeholder="Insert country and city here"
+                            multiline={false}
                             register={register}
-                            error={errors.date}
+                            error={errors.countryAndCity}
                         />
-
+                        <TextInput
+                            label="VAT (optional)"
+                            name="vatNumber"
+                            placeholder="Insert VAT number here"
+                            multiline={false}
+                            register={register}
+                            error={errors.vatNumber}
+                        />
                         <Flex mt="2.5rem" justifyContent="center">
                             <Button
                                 variant="contained"
@@ -63,7 +61,7 @@ const UserSearchForm = () => {
                                     color: '#fff',
                                 }}
                             >
-                                Contact Now
+                                CREATE ACCOUNT
                             </Button>
                         </Flex>
                     </form>
@@ -73,4 +71,4 @@ const UserSearchForm = () => {
     );
 };
 
-export default UserSearchForm;
+export default CompanyRegistrationForm;

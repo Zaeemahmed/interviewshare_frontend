@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import UserSearchForm from './UserSearchForm';
+import UserSearchForm from './UserSearchForm/UserSearchForm';
 import UserSearchTop from './components/UserSearchTop';
 
 const UserSearch = () => {

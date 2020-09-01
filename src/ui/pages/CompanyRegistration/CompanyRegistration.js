@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import RegistrationHeading from './components/RegistrationHeading';
-import CompanyRegistrationForm from './CompanyRegistrationForm';
+import CompanyRegistrationForm from './CompanyRegistrationForm/CompanyRegistrationForm';
 
 const CompanyRegistration = () => {
     return (

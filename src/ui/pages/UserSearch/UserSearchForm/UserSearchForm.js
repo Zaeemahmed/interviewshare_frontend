@@ -1,56 +1,47 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers';
 import { useForm } from 'react-hook-form';
-import { Button } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import TextInput from '../../../components/Formik/TextInput';
+import { Flex, Box } from '../../../components/Base/Base';
 import DatePicker from '../../../components/Formik/DatePicker';
-import { Box, Flex } from '../../../components/Base/Base';
-import { Grid } from '../../../components/Base/Grid';
 import { validationSchema } from './ValidationSchema';
 
-const EventSetupForm = () => {
+const UserSearchForm = () => {
     const { register, handleSubmit, errors } = useForm({
         mode: 'all',
         resolver: yupResolver(validationSchema),
     });
-
     const onSubmit = data => console.log(data);
     return (
-        <Grid container>
+        <Grid container mt="1rem">
             <Grid item xs={12}>
                 <Box width="95%" marginLeft="1rem">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextInput
-                            label="Name"
-                            name="name"
-                            placeholder="Enter your name here"
+                            label="Job Title"
+                            name="jobTitle"
+                            placeholder="Enter Job Title"
                             multiline={false}
                             register={register}
-                            error={errors.name}
+                            error={errors.jobTitle}
                         />
                         <TextInput
-                            label="Email"
-                            name="email"
-                            placeholder="example@gmail.com"
+                            label="Location"
+                            name="location"
+                            placeholder="Enter Location"
                             multiline={false}
                             register={register}
-                            error={errors.email}
+                            error={errors.location}
                         />
+
                         <DatePicker
-                            label="Schedule meeting (optional)"
+                            label="Availibility Date"
                             name="date"
                             register={register}
                             error={errors.date}
                         />
-                        <TextInput
-                            label="Message"
-                            name="message"
-                            placeholder="Enter Your message here"
-                            multiline={true}
-                            rows={4}
-                            register={register}
-                            error={errors.message}
-                        />
+
                         <Flex mt="2.5rem" justifyContent="center">
                             <Button
                                 variant="contained"
@@ -72,4 +63,4 @@ const EventSetupForm = () => {
     );
 };
 
-export default EventSetupForm;
+export default UserSearchForm;
