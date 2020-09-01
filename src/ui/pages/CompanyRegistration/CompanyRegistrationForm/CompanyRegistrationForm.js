@@ -8,7 +8,7 @@ import { validationSchema } from './ValidationSchema';
 
 const CompanyRegistrationForm = () => {
     const { register, handleSubmit, errors } = useForm({
-        mode: 'all',
+        mode: 'all', //onChange, onBlur, onSubmit, onTouched 
         resolver: yupResolver(validationSchema),
     });
 
