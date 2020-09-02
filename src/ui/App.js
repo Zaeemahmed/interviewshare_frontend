@@ -14,6 +14,7 @@ import Shop from './pages/Shop/Shop';
 import EventSetup from './pages/EventSetup/EventSetup';
 import UserSearch from './pages/UserSearch/UserSearch';
 import CompanyRegistration from './pages/CompanyRegistration/CompanyRegistration';
+import CreateAnswer from './pages/CreateAnswer/CreateAnswer';
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
@@ -43,6 +44,9 @@ export default function App() {
                                 </Route>
                                 <Route path="/companyRegistration">
                                     <CompanyRegistration />
+                                </Route>
+                                <Route path="/createAnswer">
+                                    <CreateAnswer />
                                 </Route>
                             </Switch>
                         </SizeContext.Provider>

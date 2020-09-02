@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { recordings } from './Recordings';
+import { recordings } from '../queries/Recordings';
 
 export const uploadRecording = gql`
     mutation UploadRecording($file: Upload!) {
