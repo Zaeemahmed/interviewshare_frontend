@@ -1,11 +1,11 @@
 import React from "react";
-import Circle from "../../Base/Circle";
+import Circle from "./Circle";
 import PauseIcon from "@material-ui/icons/Pause";
 
 const PauseRecording = ({ handleClick }) => {
   return (
-    <Circle>
-      <PauseIcon style={{ color: "#31C4BF" }} onClick={handleClick} />
+    <Circle bgColor="#D6E4F5">
+      <PauseIcon style={{ color: "#2074D5" }} onClick={handleClick} />
     </Circle>
   );
 };

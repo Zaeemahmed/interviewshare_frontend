@@ -1,5 +1,4 @@
 import React from 'react';
-import { Field } from 'formik';
 import { TextField } from '@material-ui/core';
 import { Text } from '../Base/Base';
 import FormControl from './FormControl';

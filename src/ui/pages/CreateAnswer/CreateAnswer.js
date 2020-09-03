@@ -1,9 +1,23 @@
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
-import Question from './components/Question';
+import Question from './components/Question/Question';
 import OurTips from './components/OurTips';
+import YourThoughts from './components/YourThoughts';
+import AnswerRecording from './components/AnswerRecording/AnswerRecording';
 
-const CreateRecording = () => {
+const CreateAnswer = () => {
+    const [answer, setAnswer] = useState(null);
+    const [src, setSrc] = useState(
+        'http://alexkatz.me/codepen/music/interlude.mp3'
+    );
+
+    const tempUpload = blob => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onload = () => {
+            setSrc(reader.result);
+        };
+    };
     return (
         <Grid
             container
@@ -24,11 +38,13 @@ const CreateRecording = () => {
                     padding: '1rem',
                 }}
             >
-                <Question/>
-                <OurTips/>
+                <Question />
+                <OurTips />
+                <YourThoughts />
+                <AnswerRecording upload={tempUpload} src={src} />
             </Grid>
         </Grid>
     );
 };
 
-export default CreateRecording;
+export default CreateAnswer;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text } from '../../../components/Base/Base';
+import { Box, Text } from '../../../../../components/Base/Base';
 
 const generateFormattedTime = currentTime => {
     const intSeconds = parseInt(currentTime, 10);
