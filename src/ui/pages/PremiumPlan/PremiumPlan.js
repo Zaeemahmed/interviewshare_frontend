@@ -7,7 +7,12 @@ export default function PremiumPlan() {
     const [payment, setPayment] = useState('');
 
     return (
-        <Box height="140vh" width="100%" backgroundColor="white">
+        <Box
+            height="140vh"
+            width="100%"
+            backgroundColor="white"
+            overflow="hidden"
+        >
             <HeaderPremiumPlan />
             <Box
                 as="h1"
