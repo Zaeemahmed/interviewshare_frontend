@@ -13,21 +13,20 @@ const RecordingControls = ({ src }) => {
     const [playing, setPlaying] = useState(false);
     return (
         <Box width="100%">
-            {status === 'saved' ? (
+            {status === 'saved' && (
                 <AudioPlayer
                     src={src}
                     playing={playing}
                     setPlaying={setPlaying}
                 />
-            ) : null}
+            )}
             <Flex justifyContent="space-around" alignItems="center">
-                {status === 'saved' ? (
-                    playing ? (
+                {status === 'saved' &&
+                    (playing ? (
                         <Pause handleClick={() => setPlaying(false)} />
                     ) : (
                         <Play handleClick={() => setPlaying(true)} />
-                    )
-                ) : null}
+                    ))}
                 {status === 'inactive' ||
                 status === 'paused' ||
                 status === 'saved' ? (
@@ -46,15 +45,15 @@ const RecordingControls = ({ src }) => {
                     />
                 )}
                 {status === 'paused' ||
-                status === 'active' ||
-                status === 'saved' ? (
-                    <Stop
-                        handleClick={() => {
-                            stop();
-                            setStatus('saved');
-                        }}
-                    />
-                ) : null}
+                    status === 'active' ||
+                    (status === 'saved' && (
+                        <Stop
+                            handleClick={() => {
+                                stop();
+                                setStatus('saved');
+                            }}
+                        />
+                    ))}
             </Flex>
         </Box>
     );
