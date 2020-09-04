@@ -1,0 +1,38 @@
+[
+  {
+    "id": "OrderDocuments.DocumentPreview.576792254",
+    "defaultMessage": "Order Reference"
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.602883748",
+    "defaultMessage": "Version"
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.3565692458",
+    "defaultMessage": "Upload Version"
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.911044447",
+    "defaultMessage": "The version of this document has been hidden."
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.575491131",
+    "defaultMessage": "unknown"
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.3033105675",
+    "defaultMessage": "Uploaded"
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.523529899",
+    "defaultMessage": "by"
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.1383690869",
+    "defaultMessage": "Waiting for a new version to be uploaded"
+  },
+  {
+    "id": "OrderDocuments.DocumentPreview.3162162853",
+    "defaultMessage": "You can’t add comments to hidden documents"
+  }
+]

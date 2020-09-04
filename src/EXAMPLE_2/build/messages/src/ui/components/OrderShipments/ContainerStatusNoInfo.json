@@ -1,0 +1,10 @@
+[
+  {
+    "id": "OrderShipments.1118442995",
+    "defaultMessage": "For the given combination of carrier and B/L we could not receive tracking information. Please check B/L Number and Carrier for correctness."
+  },
+  {
+    "id": "OrderShipments.1909496586",
+    "defaultMessage": "Edit tracking information"
+  }
+]

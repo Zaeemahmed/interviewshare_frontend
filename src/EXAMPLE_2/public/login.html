@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+	<link rel=”manifest” href=”%PUBLIC_URL%/manifest.json”>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Dashport</title>
+</head>
+<body>
+
+<!-- work here -->
+<style>
+	/* styles for email templates */
+	body {
+		background-color: #f8f9fa;
+	}
+	.navbar-container {
+		background: white;
+		box-shadow: 0 2px 5px 1px #cecece;
+		margin-bottom: 40px;
+	}
+	.navbar-container .col-10 {
+		display: flex;
+		justify-content: space-between;
+		padding: 15px;
+	}
+	.navbar-icon {
+		width: 20px;
+		height: 20px;
+	}
+	.logo {
+		color: black;
+		font-weight: bold;
+		font-size: 20px;
+	}
+	h4 {
+		color: #595959;
+		font-weight: normal;
+		font-size: 26px;
+	}
+	.message {
+		padding: 30px 24px 5px 24px;
+	}
+	.highlighted{
+		color: #5ad192;
+	}
+	a {
+		color: #5ad192!important;
+	}
+	a:hover {
+		color: #6ceba8!important;
+		text-decoration: none!important;
+	}
+	.form-row {
+		margin-left: 15px;
+		margin-right: 20px;
+	}
+	label {
+		font-weight: 400;
+		font-size: 14px;
+		margin-bottom: 0;
+		line-height: 22px;
+	}
+	form {
+		margin-bottom: 20px;
+		margin-top: 30px;
+	}
+	.btn-primary{
+		background-color: #5ad192;
+		border: 0px solid black;
+		padding: 8px 18px;
+	}
+	.btn-primary:hover{
+		box-shadow: none;
+		background-color: #6ceba8;
+	}
+	.btn-primary:active{
+		box-shadow: 0 0 0 0.2rem #439469;
+		background-color: #6ceba8 !important;
+	}
+	.btn-primary:focus{
+		border: none;
+		box-shadow: 0 0 0 0.2rem #439469;
+		background-color: #6ceba8 !important;
+	}
+
+	.btn-primary:focus {
+		box-shadow: 0 0 0 0.2rem #5ad192!important;
+	}
+	.btn-primary:not(:disabled):not(.disabled):active {
+		background-color: #5ad192;
+		border-color: #5ad192;
+	}
+
+	.form-panel {
+		background-color: #fff;
+		border: 1px solid #e8e8e8;
+		border-radius: 10px;
+	}
+	.form-footer {
+		margin-top: 5px;
+		border-top: 2px solid #e8e8e8;
+		padding: 10px 20px 20px 20px;
+	}
+	.center-span{
+		min-height:  20px;
+		display:     inline-flex;
+		align-items: center;
+		color: #595959;
+	}
+
+	#register-form{
+		margin-top: 30px;
+	}
+
+	input{
+		max-width: 400px;
+	}
+
+	.forgotPasswordLink{
+		display: block;
+		font-size: 14px;
+		margin-top: 10px;
+	}
+</style>
+
+<div">
+	<div class="navbar-container">
+		<div class="row justify-content-center ">
+			<div class="col-10">
+				<div class="logo" href="#">
+					<img alt="icon" class="navbar-icon" src="assets/dashport_icon_positiv.png"/>
+					DASHPORT
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-10">
+			<h4>Login to Dashport</h4>
+			<div class="form-panel">
+
+					<div class="message">
+						<p style="font-weight: bold">You have been invited to join order <span class="highlighted">4061</span></p>
+						<p style="color: #595959;font-size: 15px;">J&J Hamburg invited you to join a new order. Please login to continue.</p>
+					</div>
+					<hr/>
+				<form class="needs-validation" id="register-form" novalidate>
+					<div class="form-row">
+						<div class="form-group col-md-6 col-sm-12 pr-4">
+							<label for="inputName">Email address</label>
+							<input type="text" class="form-control" id="inputName" placeholder="sample.username@email.com">
+							<div id="inputNameError" class="invalid-feedback"></div>
+						</div>
+						<div class="form-group col-md-6 col-sm-12 pr-4">
+							<label for="inputCompany">Password</label>
+							<input type="password" class="form-control" id="inputCompany" placeholder="Enter">
+							<a class="forgotPasswordLink">Forgot your password?</a>
+							<div id="inputCompanyError" class="invalid-feedback"></div>
+						</div>
+					</div>
+
+				</form>
+					<div class="row d-flex justify-content-between px-3 py-2 m-0 form-footer">
+
+						<span class="center-span">
+							Need Help?
+						</span>
+						<div>
+							<button class="btn btn-primary">Login</button>
+						</div>
+					</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="root"></div>
+<!--
+  This HTML file is a template.
+  If you open it directly in the browser, you will see an empty page.
+
+  You can add webfonts, meta tags, or analytics to this file.
+  The build step will place the bundled scripts into the <body> tag.
+
+  To begin the development, run `npm start`.
+  To create a production bundle, use `npm run build`.
+-->
+</body>
+</html>

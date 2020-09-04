@@ -1,0 +1,14 @@
+[
+  {
+    "id": "OrderDocuments.DocumentListHeader.3213047139",
+    "defaultMessage": "SUPPLIER"
+  },
+  {
+    "id": "OrderDocuments.DocumentListHeader.3020214296",
+    "defaultMessage": "CUSTOMER"
+  },
+  {
+    "id": "OrderDocuments.DocumentListHeader.4198075404",
+    "defaultMessage": "Upload another document"
+  }
+]

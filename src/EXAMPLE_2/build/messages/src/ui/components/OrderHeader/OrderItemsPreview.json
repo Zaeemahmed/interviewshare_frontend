@@ -1,0 +1,26 @@
+[
+  {
+    "id": "OrderHeader.2788968432",
+    "defaultMessage": "Price {currency} net / Unit"
+  },
+  {
+    "id": "OrderHeader.2226523457",
+    "defaultMessage": "Value {currency} net"
+  },
+  {
+    "id": "OrderHeader.272638125",
+    "defaultMessage": "Supplier"
+  },
+  {
+    "id": "OrderHeader.3426593715",
+    "defaultMessage": "Customer"
+  },
+  {
+    "id": "OrderHeader.2931690848",
+    "defaultMessage": "Hide product info"
+  },
+  {
+    "id": "OrderHeader.821915515",
+    "defaultMessage": "Show product info"
+  }
+]

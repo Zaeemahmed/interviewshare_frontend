@@ -1,0 +1,63 @@
+{
+    "__schema": {
+        "types": [
+            {
+                "kind": "UNION",
+                "name": "OrderEventUnionType",
+                "possibleTypes": [
+                    {
+                        "name": "CommentType"
+                    },
+                    {
+                        "name": "OrderDataUpdateType"
+                    },
+                    {
+                        "name": "DocumentUpdateType"
+                    },
+                    {
+                        "name": "TrackingUpdateType"
+                    }
+                ]
+            },
+            {
+                "kind": "INTERFACE",
+                "name": "OrderEventType",
+                "possibleTypes": [
+                    {
+                        "name": "CommentType"
+                    },
+                    {
+                        "name": "DocumentUpdateType"
+                    },
+                    {
+                        "name": "OrderDataUpdateType"
+                    },
+                    {
+                        "name": "TrackingUpdateType"
+                    }
+                ]
+            },
+            {
+                "kind": "INTERFACE",
+                "name": "Node",
+                "possibleTypes": [
+                    {
+                        "name": "User"
+                    }
+                ]
+            },
+            {
+                "kind": "UNION",
+                "name": "MutationError",
+                "possibleTypes": [
+                    {
+                        "name": "ValidationErrors"
+                    },
+                    {
+                        "name": "ExecutionError"
+                    }
+                ]
+            }
+        ]
+    }
+}
