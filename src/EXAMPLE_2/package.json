@@ -1,0 +1,140 @@
+{
+    "name": "dashport-ui",
+    "version": "2019.09.04",
+    "private": true,
+    "scripts": {
+        "start": "export HTTPS=true && export SKIP_PREFLIGHT_CHECK=true && REACT_APP_STAGE=dev react-app-rewired start",
+        "build": "export SKIP_PREFLIGHT_CHECK=true && REACT_APP_STAGE=production react-app-rewired build",
+        "build:visualize": "export SKIP_PREFLIGHT_CHECK=true && REACT_APP_STAGE=production && BUNDLE_VISUALIZE=true react-app-rewired build",
+        "test": "export SKIP_PREFLIGHT_CHECK=true && react-app-rewired test",
+        "coverage": "jest --coverage",
+        "lint": "eslint src/**/*.{js,jsx}",
+        "lint:fix": "eslint --fix src/**/*.{js,jsx}",
+        "styleguide": "styleguidist server",
+        "styleguide:build": "styleguidist build",
+        "translations": "node ./translationRunner.js"
+    },
+    "lint-staged": {
+        "*.{js,jsx,json,html,css,md}": [
+            "prettier --write"
+        ],
+        "*.{js,jsx}": [
+            "eslint --fix --quiet",
+            "jest --bail --findRelatedTests"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "dependencies": {
+        "@apollo/react-hooks": "^3.0.1",
+        "@sentry/browser": "^5.6.3",
+        "antd": "^3.23.3",
+        "apollo-boost": "^0.4.4",
+        "apollo-link-context": "^1.0.19",
+        "apollo-upload-client": "^12.1.0",
+        "client-oauth2": "^4.2.5",
+        "core-js": "^3.6.4",
+        "graphql": "^14.5.6",
+        "immutability-helper": "^3.0.1",
+        "jwt-decode": "^2.2.0",
+        "lodash": "^4.17.15",
+        "moment": "^2.24.0",
+        "moment-timezone": "^0.5.26",
+        "prop-types": "^15.7.2",
+        "react": "^16.9.0",
+        "react-apollo": "^3.1.0",
+        "react-app-polyfill": "^1.0.5",
+        "react-dnd": "^10.0.2",
+        "react-dnd-html5-backend": "^10.0.2",
+        "react-dom": "^16.9.0",
+        "react-dropzone": "^10.1.9",
+        "react-intl": "^3.3.2",
+        "react-intl-translations-manager": "^5.0.3",
+        "react-pdf": "^4.1.0",
+        "react-responsive": "^8.0.1",
+        "react-router-dom": "^5.0.1",
+        "react-scripts": "^3.3.0",
+        "styled-components": "^5.0.0",
+        "styled-system": "^5.1.4"
+    },
+    "devDependencies": {
+        "@apollo/react-testing": "^3.1.0",
+        "@babel/cli": "^7.6.0",
+        "@babel/core": "^7.8.3",
+        "babel-eslint": "^10.0.3",
+        "babel-jest": "^24.9.0",
+        "babel-plugin-import": "^1.12.1",
+        "babel-plugin-react-intl": "^5.1.16",
+        "babel-plugin-react-intl-auto": "^3.1.0",
+        "babel-plugin-styled-components": "^1.10.6",
+        "babel-preset-react-app": "^9.1.0",
+        "customize-cra": "^0.9.1",
+        "customize-cra-react-refresh": "^1.0.1",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
+        "eslint": "^6.4.0",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-plugin-import": "^2.20.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "husky": "^4.0.0",
+        "jest-fetch-mock": "^3.0.1",
+        "less": "^3.10.3",
+        "less-loader": "^5.0.0",
+        "lint-staged": "^10.0.1",
+        "prettier": "^1.19.1",
+        "react-app-rewired": "^2.1.3",
+        "react-styleguidist": "^10.6.1",
+        "waait": "^1.0.5",
+        "webpack-bundle-analyzer": "^3.6.0"
+    },
+    "jest": {
+        "globals": {
+            "window": true
+        },
+        "coverageDirectory": "<rootDir>/coverage",
+        "setupFiles": [
+            "./src/config/setupTests.js"
+        ],
+        "transform": {
+            "^.+\\.jsx?$": "babel-jest"
+        },
+        "moduleFileExtensions": [
+            "js",
+            "jsx"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 95,
+                "functions": 95,
+                "lines": 97,
+                "statements": 97
+            }
+        },
+        "coveragePathIgnorePatterns": [
+            "<rootDir>/src/config/",
+            "<rootDir>/src/mocks/",
+            "/node_modules/"
+        ],
+        "testURL": "https://localhost:3000/",
+        "moduleDirectories": [
+            "node_modules",
+            "src"
+        ],
+        "modulePathIgnorePatterns": [
+            "<rootDir>/coverage/"
+        ],
+        "moduleNameMapper": {
+            "@/(.*)": "<rootDir>/src/$1",
+            "\\.(css)$": "<rootDir>/src/mocks/styleMock.js",
+            "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/mocks/fileMock.js"
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "ie 11"
+    ]
+}

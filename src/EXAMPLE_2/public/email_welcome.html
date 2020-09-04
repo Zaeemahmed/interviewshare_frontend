@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Title</title>
+</head>
+<body>
+
+<style>
+	/* styles for email templates */
+
+	.table td{
+		padding: .5rem;
+		border: 0px solid black;
+	}
+
+	h1 {
+		color: #262626;
+		font-size: 2rem;
+	}
+
+	.table td.description  {
+		font-weight: 300;
+		color: #545454;
+	}
+
+	.btn-primary{
+		background-color: #5ad192;
+		border: 0px solid black;
+		width: 129px;
+		height: 40px;
+	}
+	.btn-primary:hover{
+		background-color: #6ceba8;
+	}
+
+	.highlighted{
+		color: #5ad192;
+	}
+
+	.logo{
+		background-image:  url('/assets/dashport_icon_positiv.png');
+		background-size:   contain;
+		background-repeat: no-repeat;
+		width:             19px;
+		height:            16px;
+		margin-top:        4px;
+		float:             left;
+		line-height:       14px;
+		margin-right: 5px;
+	}
+
+	.logoname{
+		margin-right: 5px;
+		font-weight: 700;
+	}
+</style>
+
+
+<div class="container"
+	 style="background-color: #F8F9FA; padding: 3%"
+>
+	<div class="row"
+		 style="padding-bottom: 20px"
+	>
+		<div class="col-sm" style="font-weight: 700">
+			Order Invite
+		</div>
+		<div class="col-sm" style="display: flex; justify-content: flex-end">
+			<div class="logo"></div>
+			<div class="logoname">
+				DASHPORT
+			</div>
+		</div>
+	</div>
+
+	<div class="container" style="background-color: white; border-radius: 8px">
+		<div class="row">
+			<div class="col-sm">
+				<h1 style="padding-top: 20px">Hello, you have been invited to an order on Dashport</h1>
+				<p>J&J Hamburg has invited you to join order
+					<span class="highlighted">Reference  4061</span> on
+					Dashport as <span class="highlighted">Customer</span>
+				</p>
+				<br/>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			</div>
+		</div>
+		<br/>
+		<a href="https://app.dashport.io/order/70"
+		   target="_blank"
+		   class="btn btn-primary"
+		>View Order</a>
+		<br/>
+		<br/>
+
+		<hr />
+
+		<div class="row">
+			<div class="col-sm">
+				<table class="table">
+					<tr>
+						<td class="description">Product</td>
+						<td>Glyphosate 98% + 1</td>
+					</tr>
+					<tr>
+						<td class="description">Destination</td>
+						<td>Cartagena, CO</td>
+					</tr>
+					<tr>
+						<td class="description">Incoterms</td>
+						<td>CIF</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm">
+				<table class="table">
+					<tr>
+						<td class="description">Quantitiy</td>
+						<td>20 TM</td>
+					</tr>
+					<tr>
+						<td class="description">Reference No.</td>
+						<td>30009124</td>
+					</tr>
+					<tr>
+						<td class="description">Price</td>
+						<td>5.800,00 USD</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="root"></div>
+
+</body>
+</html>
