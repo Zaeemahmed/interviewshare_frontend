@@ -14,7 +14,7 @@ const TextInput = ({
 }) => {
     return (
         <FormControl>
-            <Text fontFamily="Roboto" letterSpacing="0.02rem" color="#777D7D" fontSize="16px">
+            <Text fontFamily="Roboto" letterSpacing="0.02rem" color="#777D7D">
                 {label}
             </Text>
             <TextField

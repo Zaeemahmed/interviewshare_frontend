@@ -13,48 +13,47 @@ const RecordingControls = ({ src }) => {
     const [playing, setPlaying] = useState(false);
     return (
         <Box width="100%">
-            {status === 'saved' ? (
+            {status === 'saved' && (
                 <AudioPlayer
                     src={src}
                     playing={playing}
                     setPlaying={setPlaying}
                 />
-            ) : null}
+            )}
             <Flex justifyContent="space-around" alignItems="center">
-                {status === 'saved' ? (
-                    playing ? (
-                        <Pause handleClick={() => setPlaying(false)} />
+                {status === 'saved' &&
+                    (playing ? (
+                        <Pause onClick={() => setPlaying(false)} />
                     ) : (
-                        <Play handleClick={() => setPlaying(true)} />
-                    )
-                ) : null}
+                        <Play onClick={() => setPlaying(true)} />
+                    ))}
                 {status === 'inactive' ||
                 status === 'paused' ||
                 status === 'saved' ? (
                     <Mic
-                        handleClick={() => {
+                        onClick={() => {
                             start();
                             setStatus('active');
                         }}
                     />
                 ) : (
                     <Pause
-                        handleClick={() => {
+                        onClick={() => {
                             pause();
                             setStatus('paused');
                         }}
                     />
                 )}
-                {status === 'paused' ||
-                status === 'active' ||
-                status === 'saved' ? (
+                {(status === 'paused' ||
+                    status === 'active' ||
+                    status === 'saved') && (
                     <Stop
-                        handleClick={() => {
+                        onClick={() => {
                             stop();
                             setStatus('saved');
                         }}
                     />
-                ) : null}
+                )}
             </Flex>
         </Box>
     );

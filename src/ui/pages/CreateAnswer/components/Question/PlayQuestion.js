@@ -19,11 +19,14 @@ const PlayQuestion = ({ questionAudio }) => {
             <Circle bgColor="#D6E4F5">
                 {!playing ? (
                     <PlayArrowIcon
-                        style={{ color: '#2074D5' }}
+                        style={{ color: '#2074D5', cursor: 'pointer' }}
                         onClick={play}
                     />
                 ) : (
-                    <PauseIcon style={{ color: '#2074D5' }} onClick={pause} />
+                    <PauseIcon
+                        style={{ color: '#2074D5', cursor: 'pointer' }}
+                        onClick={pause}
+                    />
                 )}
             </Circle>
         </Box>

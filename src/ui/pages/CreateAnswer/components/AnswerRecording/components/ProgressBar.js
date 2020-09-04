@@ -22,7 +22,7 @@ const ProgressBar = ({ duration, currentTime, onTimeUpdate }) => {
         >
             <Flex
                 borderRadius="5px"
-                margin="0 20px"
+                m="0 20px"
                 height="6px"
                 alignItems="center"
                 cursor="pointer"

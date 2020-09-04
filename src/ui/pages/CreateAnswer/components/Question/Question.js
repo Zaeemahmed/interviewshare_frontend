@@ -7,10 +7,10 @@ const Question = ({ source }) => {
     return (
         <Box
             backgroundColor="#EFF0F0"
-            padding="5%"
+            p="5%"
             borderRadius="0px 32px 32px 32px"
         >
-            <Flex justifyContent="space-between" alignItems="center" padding="5px">
+            <Flex justifyContent="space-between" alignItems="center" p="5px">
                 <Text
                     color="#3C3E3F"
                     fontFamily="Roboto"

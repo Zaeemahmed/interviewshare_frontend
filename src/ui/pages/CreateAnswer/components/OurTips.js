@@ -27,12 +27,12 @@ const OurTips = () => {
                 </Text>
                 {collapsed ? (
                     <ExpandMoreIcon
-                        style={{ color: '#2074D5' }}
+                        style={{ color: '#2074D5', cursor: 'pointer' }}
                         onClick={handleCollapse}
                     />
                 ) : (
                     <ExpandLessIcon
-                        style={{ color: '#2074D5' }}
+                        style={{ color: '#2074D5', cursor: 'pointer' }}
                         onClick={handleCollapse}
                     />
                 )}

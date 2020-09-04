@@ -2,10 +2,10 @@ import React from 'react';
 import MicIcon from '@material-ui/icons/Mic';
 import Circle from './Circle';
 
-const Mic = ({ handleClick }) => {
+const Mic = ({ onClick }) => {
     return (
         <Circle bgColor="#2074D5">
-            <MicIcon style={{ color: '#ffF' }} onClick={handleClick} />
+            <MicIcon style={{ color: '#ffF' }} onClick={onClick} />
         </Circle>
     );
 };
