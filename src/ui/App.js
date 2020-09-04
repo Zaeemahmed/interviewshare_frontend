@@ -59,7 +59,7 @@ const AppStyle = createGlobalStyle`
         font-size: 1rem;
         line-height: 2rem;
         color: #ffffff;
-        background: #222222;
+        background: ${theme.backgrounds.main};
         margin: 0;
         padding: 0;
     }

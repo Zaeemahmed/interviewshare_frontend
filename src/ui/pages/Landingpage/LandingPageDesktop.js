@@ -1,12 +1,12 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import DeviceProvider from '../../../helpers/DeviceProvider';
+import Layout from '../../templates/Layout';
 import { Box } from '../../components/Base/Base';
 import IconButtonBig from './components/IconButtonBig';
 
 export default function LandingPageDesktop() {
     return (
-        <DeviceProvider>
+        <Layout>
             <Box
                 maxWidth={{ lg: '550px', xl: '650px', xxl: '800px' }}
                 position="absolute"
@@ -23,6 +23,6 @@ export default function LandingPageDesktop() {
                     </IconButtonBig>
                 </Box>
             </Box>
-        </DeviceProvider>
+        </Layout>
     );
 }
