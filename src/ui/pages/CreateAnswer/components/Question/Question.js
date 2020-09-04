@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import PauseIcon from '@material-ui/icons/Pause';
+import React from 'react';
 import { Box, Flex, Text } from '../../../../components/Base/Base';
-import Circle from '../../../../components/Base/Circle';
 import PlayQuestion from './PlayQuestion';
 
 const Question = ({ source }) => {
+    const questionAudio = new Audio('http://alexkatz.me/codepen/music/interlude.mp3');
     return (
         <Box
             backgroundColor="#EFF0F0"
             padding="5%"
             borderRadius="0px 32px 32px 32px"
         >
-            <Flex justifyContent="space-between">
+            <Flex justifyContent="space-between" alignItems="center">
                 <Text
                     color="#3C3E3F"
                     fontFamily="Roboto"
@@ -21,7 +19,7 @@ const Question = ({ source }) => {
                 >
                     What have you been doing for past two years?
                 </Text>
-                <PlayQuestion source={source} />
+                <PlayQuestion questionAudio={questionAudio} />
             </Flex>
         </Box>
     );

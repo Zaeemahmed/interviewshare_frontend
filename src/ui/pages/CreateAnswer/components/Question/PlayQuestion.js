@@ -4,18 +4,15 @@ import PauseIcon from '@material-ui/icons/Pause';
 import { Box } from '../../../../components/Base/Base';
 import Circle from '../../../../components/Base/Circle';
 
-const PlayQuestion = ({ source }) => {
+const PlayQuestion = ({ questionAudio }) => {
     const [playing, setPlaying] = useState(false);
-    const questionAudio = new Audio(
-        'http://alexkatz.me/codepen/music/interlude.mp3'
-    );
     const play = () => {
-        questionAudio.play();
         setPlaying(true);
+        questionAudio.play();
     };
     const pause = () => {
-        questionAudio.pause();
         setPlaying(false);
+        questionAudio.pause();
     };
     return (
         <Box>
@@ -26,10 +23,7 @@ const PlayQuestion = ({ source }) => {
                         onClick={play}
                     />
                 ) : (
-                    <PauseIcon
-                        style={{ color: '#2074D5' }}
-                        onClick={pause}
-                    />
+                    <PauseIcon style={{ color: '#2074D5' }} onClick={pause} />
                 )}
             </Circle>
         </Box>

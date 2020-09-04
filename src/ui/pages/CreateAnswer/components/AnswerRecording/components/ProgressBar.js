@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex } from '../../../../../components/Base/Base';
 import Time from './Time';
-import Playhead from './Playhead';
+import PlayHead from './PlayHead';
 
 const ProgressBar = ({ duration, currentTime, onTimeUpdate }) => {
     const percentage = ((currentTime / duration) * 100).toFixed(2);
@@ -34,7 +34,7 @@ const ProgressBar = ({ duration, currentTime, onTimeUpdate }) => {
                     moveSeek(e);
                 }}
             >
-                <Playhead percentage={percentage} />
+                <PlayHead percentage={percentage} />
             </Flex>
             <Flex justifyContent="space-between" width="100%" mt="15px">
                 <Time time={currentTime} />

@@ -10,6 +10,7 @@ const playHead = ({ percentage }) => {
             borderRadius="50%"
             backgroundColor="#2074D5"
             style={{ left: `${percentage}%` }}
+            onClick={e => e.stopPropagation()}
         />
     );
 };

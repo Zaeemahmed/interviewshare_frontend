@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import { Flex, Box } from '../../../../components/Base/Base';
 import { VoiceRecorder } from 'voicerecorder';
 import RecordingControls from './RecordingControls';

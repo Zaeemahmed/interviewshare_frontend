@@ -6,7 +6,6 @@ import YourThoughts from './components/YourThoughts';
 import AnswerRecording from './components/AnswerRecording/AnswerRecording';
 
 const CreateAnswer = () => {
-    const [answer, setAnswer] = useState(null);
     const [src, setSrc] = useState(
         'http://alexkatz.me/codepen/music/interlude.mp3'
     );
