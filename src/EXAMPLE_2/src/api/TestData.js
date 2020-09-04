@@ -1,0 +1,61 @@
+export const testData = {
+    allOrders: [
+        {
+            __typename: 'Order',
+            key: 1,
+            orderNr: '300009382',
+            product: 'Glyphosate 98+2',
+            supplier: 'Monsanto China',
+            buyer: 'PepsiCo Brazil',
+            orderStatus: 'unassigned',
+            etd: 'multiple',
+            eta: '31.09.2019',
+            details: [
+                {
+                    __typename: 'OrderDetail',
+                    pos: '10',
+                    key: 7,
+                    product: 'Glyphosate 98%',
+                    quantity: '5.000kg',
+                    shippingStatus: 'Ocean Transport',
+                    etd: '29.07.2019',
+                    eta: '10.09.2019',
+                },
+                {
+                    __typename: 'OrderDetail',
+                    key: 8,
+                    pos: '20',
+                    product: '2-Chloro-5-Chloromethyltiazole 98,5% min.',
+                    quantity: '10.000kg',
+                    shippingStatus: 'Ocean Transport',
+                    etd: '29.07.2019',
+                    eta: '10.09.2019',
+                },
+            ],
+        },
+        {
+            __typename: 'Order',
+            key: 2,
+            orderNr: '300009383',
+            product: 'Glyphosate 98+2',
+            supplier: 'Monsanto China',
+            buyer: 'PepsiCo Brazil',
+            orderStatus: 'unassigned',
+            etd: 'multiple',
+            eta: '31.09.2019',
+            // details: []
+        },
+        {
+            __typename: 'Order',
+            key: 3,
+            orderNr: '300009384',
+            product: 'Glyphosate 98+2',
+            supplier: 'Monsanto China',
+            buyer: 'PepsiCo Brazil',
+            orderStatus: 'unassigned',
+            etd: 'multiple',
+            eta: '31.09.2019',
+            // details: []
+        },
+    ],
+};

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "MessageSend cancel button",
+    "defaultMessage": "Cancel"
+  },
+  {
+    "id": "MessageSend send button",
+    "defaultMessage": "Send Message"
+  }
+]

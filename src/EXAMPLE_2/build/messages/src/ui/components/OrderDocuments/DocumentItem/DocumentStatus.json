@@ -1,0 +1,26 @@
+[
+  {
+    "id": "OrderDocuments.DocumentItem.3033105675",
+    "defaultMessage": "Uploaded"
+  },
+  {
+    "id": "OrderDocuments.DocumentItem.2693024193",
+    "defaultMessage": "Approved"
+  },
+  {
+    "id": "OrderDocuments.DocumentItem.2807727678",
+    "defaultMessage": "Waiting for approval"
+  },
+  {
+    "id": "OrderDocuments.DocumentItem.664231068",
+    "defaultMessage": "Waiting for your approval"
+  },
+  {
+    "id": "OrderDocuments.DocumentItem.1615091399",
+    "defaultMessage": "Waiting for your upload"
+  },
+  {
+    "id": "OrderDocuments.DocumentItem.1253239673",
+    "defaultMessage": "Waiting for upload"
+  }
+]

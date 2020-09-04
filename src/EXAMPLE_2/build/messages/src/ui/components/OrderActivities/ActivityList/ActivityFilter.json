@@ -1,0 +1,18 @@
+[
+  {
+    "id": "OrderActivities.ActivityList.1517876668",
+    "defaultMessage": "All"
+  },
+  {
+    "id": "OrderActivities.ActivityList.2633741708",
+    "defaultMessage": "Conversations"
+  },
+  {
+    "id": "OrderActivities.ActivityList.515889356",
+    "defaultMessage": "Documents"
+  },
+  {
+    "id": "OrderActivities.ActivityList.1663822277",
+    "defaultMessage": "Shipments"
+  }
+]

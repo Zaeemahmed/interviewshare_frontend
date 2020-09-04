@@ -1,0 +1,10 @@
+[
+  {
+    "id": "OrderHeaderSupplier supplier",
+    "defaultMessage": "SUPPLIER"
+  },
+  {
+    "id": "OrderHeaderSupplier supplierreference",
+    "defaultMessage": "Supplier Order Reference: {orderReference}"
+  }
+]

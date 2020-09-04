@@ -1,0 +1,10 @@
+[
+  {
+    "id": "MessageCreate title",
+    "defaultMessage": "Send Message"
+  },
+  {
+    "id": "MessageCreate button",
+    "defaultMessage": "Send Message"
+  }
+]

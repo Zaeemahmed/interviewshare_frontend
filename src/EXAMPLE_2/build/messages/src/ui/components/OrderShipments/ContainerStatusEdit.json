@@ -1,0 +1,10 @@
+[
+  {
+    "id": "OrderShipments.4023364009",
+    "defaultMessage": "The provided tracking info is incomplete. Please provide B/L and Carrier."
+  },
+  {
+    "id": "OrderShipments.1909496586",
+    "defaultMessage": "Edit tracking information"
+  }
+]

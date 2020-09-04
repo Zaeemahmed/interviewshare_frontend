@@ -1,0 +1,10 @@
+[
+  {
+    "id": "OrderHeaderCustomer customer",
+    "defaultMessage": "CUSTOMER"
+  },
+  {
+    "id": "OrderHeaderCustomer customer customerOrderReference",
+    "defaultMessage": "Customer Order Reference: {customerOrderReference}"
+  }
+]
