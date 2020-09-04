@@ -16,7 +16,7 @@ const UserSearchForm = () => {
     return (
         <Grid container mt="1rem">
             <Grid item xs={12}>
-                <Box width="95%" marginLeft="1rem">
+                <Box width="100%">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextInput
                             label="Job Title"

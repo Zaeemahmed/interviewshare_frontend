@@ -16,7 +16,7 @@ const CompanyRegistrationForm = () => {
     return (
         <Grid container>
             <Grid item xs={12}>
-                <Box marginLeft="1rem" width="95%">
+                <Box width="100%">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextInput
                             label="Company name"

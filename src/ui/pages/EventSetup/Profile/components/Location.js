@@ -12,10 +12,10 @@ export default function Location() {
                 style={{
                     fontFamily: 'Roboto',
                     color: '#A1A5A5',
-                    fontSize: '0.9rem',
-                    letterSpacing: '0.03rem',
+                    fontSize: '14px',
+                    letterSpacing: '0.03em',
                 }}
-                variant="h6"
+                variant="p"
             >
                 Berlin, Germany
             </Typography>

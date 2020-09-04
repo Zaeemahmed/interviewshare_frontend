@@ -15,7 +15,7 @@ const YourThoughts = () => {
         }
     };
     return (
-        <Box borderRadius="8px" mt="2rem" padding="5%">
+        <Box borderRadius="8px" mt="2rem">
             <Flex justifyContent="space-between" alignItems="center">
                 <Text color="#777D7D" font-weight="bold" fontFamily="Roboto">
                     Your Thoughts (Not Public)

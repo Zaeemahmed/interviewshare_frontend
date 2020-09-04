@@ -9,21 +9,22 @@ import Location from './components/Location';
 const Profile = () => {
     return (
         <Grid container spacing={3}>
-            <Grid item xs={4} container justify="flex-end">
+            <Grid item xs={3} container justify="flex-end">
                 <UserImage />
             </Grid>
-            <Grid item xs={8}>
+            <Grid item xs={9}>
                 <Username />
                 <UserOccupation />
                 <Grid item xs={12} container spacing={2} alignItems="center">
                     <Grid
                         item
-                        xs={3}
+                        xs={4}
                         style={{ textAlign: 'center', padding: '0.1rem' }}
+                        justify="flex-end"
                     >
                         <Duration />
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={8}>
                         <Location />
                     </Grid>
                 </Grid>

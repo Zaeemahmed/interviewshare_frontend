@@ -41,7 +41,7 @@ const OurTips = () => {
             {!collapsed ? (
                 <Box>
                     <Tip tip="Describe the technology" />
-                    <Tip tip="Describe your team (the sizes and roles your team had)" />
+                    <Tip tip="Describe your team" />
                     <Tip tip="Describe Your achievements" />
                 </Box>
             ) : null}

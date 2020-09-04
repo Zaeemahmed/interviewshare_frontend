@@ -2,10 +2,11 @@ import React, { Fragment } from 'react';
 import { Grid } from '@material-ui/core';
 import Profile from './Profile/Profile';
 import EventSetupForm from './EventSetupForm/EventSetupForm';
+import Layout from '../../templates/Layout';
 
 function EventSetup() {
     return (
-        <Fragment>
+        <Layout mobileFooter={<h1>Footer</h1>}>
             <Grid
                 container
                 style={{
@@ -29,7 +30,7 @@ function EventSetup() {
                     <EventSetupForm />
                 </Grid>
             </Grid>
-        </Fragment>
+        </Layout>
     );
 }
 

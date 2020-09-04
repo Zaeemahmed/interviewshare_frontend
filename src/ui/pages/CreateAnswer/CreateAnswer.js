@@ -4,6 +4,7 @@ import Question from './components/Question/Question';
 import OurTips from './components/OurTips';
 import YourThoughts from './components/YourThoughts';
 import AnswerRecording from './components/AnswerRecording/AnswerRecording';
+import Layout from '../../templates/Layout';
 
 const CreateAnswer = () => {
     const [src, setSrc] = useState(
@@ -18,31 +19,33 @@ const CreateAnswer = () => {
         };
     };
     return (
-        <Grid
-            container
-            style={{
-                margin: '1rem 0',
-            }}
-            justify="center"
-        >
+        <Layout>
             <Grid
-                item
-                xs={10}
-                sm={7}
-                md={5}
-                lg={3}
+                container
                 style={{
-                    background: '#FFF',
-                    borderRadius: '10px',
-                    padding: '1rem',
+                    margin: '1rem 0',
                 }}
+                justify="center"
             >
-                <Question />
-                <OurTips />
-                <YourThoughts />
-                <AnswerRecording upload={tempUpload} src={src} />
+                <Grid
+                    item
+                    xs={10}
+                    sm={7}
+                    md={5}
+                    lg={3}
+                    style={{
+                        background: '#FFF',
+                        borderRadius: '10px',
+                        padding: '1rem',
+                    }}
+                >
+                    <Question />
+                    <OurTips />
+                    <YourThoughts />
+                    <AnswerRecording upload={tempUpload} src={src} />
+                </Grid>
             </Grid>
-        </Grid>
+        </Layout>
     );
 };
 

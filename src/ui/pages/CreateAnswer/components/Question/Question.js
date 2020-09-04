@@ -10,11 +10,12 @@ const Question = ({ source }) => {
             padding="5%"
             borderRadius="0px 32px 32px 32px"
         >
-            <Flex justifyContent="space-between" alignItems="center">
+            <Flex justifyContent="space-between" alignItems="center" padding="5px">
                 <Text
                     color="#3C3E3F"
                     fontFamily="Roboto"
-                    width="50%"
+                    fontSize="14px"
+                    width="65%"
                     lineHeight="22px"
                 >
                     What have you been doing for past two years?
