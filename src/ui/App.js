@@ -14,7 +14,7 @@ import UserSearch from './pages/UserSearch/UserSearch';
 import CompanyRegistration from './pages/CompanyRegistration/CompanyRegistration';
 
 export default function App() {
-    let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
+    let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.sm})`);
 
     return (
         <ErrorBoundary>
