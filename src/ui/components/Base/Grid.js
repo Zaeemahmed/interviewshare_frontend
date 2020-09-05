@@ -15,4 +15,3 @@ export const Grid = styled(MuiGrid)(
     props => props.css,
     compose(space, layout, typography, color, flexbox, position, border)
 );
-

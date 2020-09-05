@@ -9,7 +9,9 @@ export default function Layout({ children, mobileFooter }) {
     return (
         <>
             {isDesktop ? (
-                <TemplateDesktop>{children}</TemplateDesktop>
+                <TemplateDesktop mobileFooter={mobileFooter}>
+                    {children}
+                </TemplateDesktop>
             ) : (
                 <TemplateMobile mobileFooter={mobileFooter}>
                     {children}

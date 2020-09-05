@@ -11,7 +11,12 @@ const Tip = ({ tip }) => {
                 mr="15px"
                 borderRadius="50%"
             ></Box>
-            <Text fontFamily="Roboto" color="#777D7D" fontSize="14px" lineHeight="20px">
+            <Text
+                fontFamily="Roboto"
+                color="#777D7D"
+                fontSize="14px"
+                lineHeight="20px"
+            >
                 {tip}
             </Text>
         </Flex>

@@ -87,7 +87,7 @@ class AudioPlayer extends React.Component {
     render = () => {
         return (
             <>
-                {this.howler ? (
+                {this.howler && (
                     <Flex
                         alignItems="center"
                         justifyContent="center"
@@ -105,7 +105,7 @@ class AudioPlayer extends React.Component {
                             sound={this.howler}
                         />
                     </Flex>
-                ) : null}
+                )}
             </>
         );
     };
