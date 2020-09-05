@@ -7,7 +7,6 @@ export default function TemplateDesktop({ children, mobileFooter }) {
     return (
         <Box
             width="360px"
-            height="700px"
             justify="center"
             border={theme.borders.default}
             borderRadius={theme.borderRadius.default}

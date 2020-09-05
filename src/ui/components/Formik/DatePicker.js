@@ -1,6 +1,5 @@
 import 'date-fns';
-import React from 'react';
-import { Field } from 'formik';
+import React, { useState } from 'react';
 import MomentUtils from '@date-io/moment';
 import {
     MuiPickersUtilsProvider,
@@ -9,16 +8,20 @@ import {
 import { Text } from '../Base/Base';
 import FormControl from './FormControl';
 
-const DatePickerField = ({ field, form }) => {
-    const currentError = form.errors[field.name];
+const DatePickerField = ({ name, error, register }) => {
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const handleDateChange = date => {
+        setSelectedDate(date);
+    };
     return (
         <MuiPickersUtilsProvider utils={MomentUtils}>
             <KeyboardDatePicker
-                format="dd/MM/yyyy"
+                format="DD/MM/YYYY"
+                autoOk
                 disablePast
                 clearable
-                name={field.name}
-                value={field.value}
+                name={name}
+                value={selectedDate}
                 inputVariant="outlined"
                 size="small"
                 fullWidth={true}
@@ -27,28 +30,22 @@ const DatePickerField = ({ field, form }) => {
                     width: '100%',
                     borderRadius: '10px',
                 }}
-                helperText={currentError}
-                error={Boolean(currentError)}
-                onError={error => {
-                    if (error !== currentError) {
-                        form.setFieldError(field.name, error);
-                    }
-                }}
-                onChange={date => {
-                    form.setFieldValue(field.name, date, false);
-                }}
+                helperText={error ? error.message : ''}
+                error={Boolean(error)}
+                onChange={handleDateChange}
+                inputRef={register}
             />
         </MuiPickersUtilsProvider>
     );
 };
 
-const DatePicker = ({ name, label }) => {
+const DatePicker = ({label, ...rest}) => {
     return (
         <FormControl>
             <Text fontFamily="Roboto" letterSpacing="0.02rem" color="#777D7D">
                 {label}
             </Text>
-            <Field name={name} component={DatePickerField} />
+            <DatePickerField {...rest} />
         </FormControl>
     );
 };

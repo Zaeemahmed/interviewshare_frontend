@@ -1,16 +1,14 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers';
 import { useForm } from 'react-hook-form';
-import { Button } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import TextInput from '../../../components/Formik/TextInput';
-import DatePicker from '../../../components/Formik/DatePicker';
-import { Box, Flex } from '../../../components/Base/Base';
-import { Grid } from '../../../components/Base/Grid';
+import { Flex, Box } from '../../../components/Base/Base';
 import { validationSchema } from './ValidationSchema';
 
-const EventSetupForm = () => {
+const CompanyRegistrationForm = () => {
     const { register, handleSubmit, errors } = useForm({
-        mode: 'all',//onChange, onBlur, onSubmit, onTouched 
+        mode: 'all', //onChange, onBlur, onSubmit, onTouched 
         resolver: yupResolver(validationSchema),
     });
 
@@ -21,35 +19,36 @@ const EventSetupForm = () => {
                 <Box width="100%">
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextInput
-                            label="Name"
-                            name="name"
-                            placeholder="Enter your name here"
+                            label="Company name"
+                            name="companyName"
+                            placeholder="Insert company name here"
                             multiline={false}
                             register={register}
-                            error={errors.name}
+                            error={errors.companyName}
                         />
                         <TextInput
-                            label="Email"
-                            name="email"
-                            placeholder="example@gmail.com"
+                            label="Address"
+                            name="address"
+                            placeholder="Insert company address here"
                             multiline={false}
                             register={register}
-                            error={errors.email}
-                        />
-                        <DatePicker
-                            label="Schedule meeting (optional)"
-                            name="date"
-                            register={register}
-                            error={errors.date}
+                            error={errors.address}
                         />
                         <TextInput
-                            label="Message"
-                            name="message"
-                            placeholder="Enter Your message here"
-                            multiline={true}
-                            rows={4}
+                            label="Country and city"
+                            name="countryAndCity"
+                            placeholder="Insert country and city here"
+                            multiline={false}
                             register={register}
-                            error={errors.message}
+                            error={errors.countryAndCity}
+                        />
+                        <TextInput
+                            label="VAT (optional)"
+                            name="vatNumber"
+                            placeholder="Insert VAT number here"
+                            multiline={false}
+                            register={register}
+                            error={errors.vatNumber}
                         />
                         <Flex mt="2.5rem" justifyContent="center">
                             <Button
@@ -62,7 +61,7 @@ const EventSetupForm = () => {
                                     color: '#fff',
                                 }}
                             >
-                                Contact Now
+                                CREATE ACCOUNT
                             </Button>
                         </Flex>
                     </form>
@@ -72,4 +71,4 @@ const EventSetupForm = () => {
     );
 };
 
-export default EventSetupForm;
+export default CompanyRegistrationForm;

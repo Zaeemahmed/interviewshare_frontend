@@ -4,11 +4,11 @@ import Header from './components/Header/Header';
 
 export default function TemplateMobile({ children, mobileFooter }) {
     return (
-        <Box padding="25px">
+        <Box p="25px">
             <Box height="50px">
                 <Header />
             </Box>
-            <Box height="540px" p="10px 0px">
+            <Box p="10px 0px">
                 {children}
             </Box>
             {mobileFooter && (

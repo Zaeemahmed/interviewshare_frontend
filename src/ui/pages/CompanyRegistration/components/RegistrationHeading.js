@@ -10,7 +10,6 @@ const RegistrationHeading = () => {
                 fontFamily="PT Serif"
                 fontSize="1.5rem"
                 letterSpacing="0.02em"
-                marginLeft="3rem"
             >
                 Search for your next candidate
             </Text>
@@ -19,7 +18,6 @@ const RegistrationHeading = () => {
                 color="#A1A5A5"
                 fontFamily="Roboto"
                 letterSpacing="0.02em"
-                marginLeft="3rem"
             >
                 Not public just for invoice
             </Text>
