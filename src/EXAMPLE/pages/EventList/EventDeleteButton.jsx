@@ -1,20 +1,17 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import { useMutation } from '@apollo/client';
-import { useTranslation } from 'react-i18next';
 import {
     cacheDeleteEvent,
     gqlDeleteEvent,
 } from '../../../data/Event/DeleteEvent';
 
-function EventDelete({ eventId }) {
-    const { t } = useTranslation();
+function EventDeleteButton({ eventId }) {
     const [deleteEvent] = useMutation(gqlDeleteEvent);
 
     return (
-        <Button
-            variant="outlined"
-            color="secondary"
+        <DeleteOutlinedIcon
+            data-cy="EventDelete"
             onClick={e => {
                 e.preventDefault();
                 deleteEvent({
@@ -26,10 +23,8 @@ function EventDelete({ eventId }) {
                     },
                 });
             }}
-        >
-            {t('EventDelete')}
-        </Button>
+        ></DeleteOutlinedIcon>
     );
 }
 
-export default EventDelete;
+export default EventDeleteButton;

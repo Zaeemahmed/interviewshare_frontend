@@ -1,58 +1,54 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import { useQuery } from '@apollo/client';
-import { useTranslation } from 'react-i18next';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Typography from '@material-ui/core/Typography';
 import { gqlEvents } from '../../../data/Event/Events';
-import { Box, Card, Text } from '../../components/Base/Base';
 import 'react-toastify/dist/ReactToastify.min.css';
 import Layout from '../../templates/Layout';
-import EventDelete from './EventDelete';
-
-const useStyles = makeStyles(() => ({
-    colors: {
-        black: '#000',
-        white: '#fff',
-        green: '#0de99a',
-        grey: '#f8f9fa',
-        darkgrey: '#191919',
-        deepBlack: '#222222',
-    },
-}));
+import { Box } from '../../components/Base/Base';
+import EventDeleteButton from './EventDeleteButton';
+import EventEditButton from './EventEditButton';
+import EventCreateButton from './EventCreateButton';
 
 export default function EventList() {
-    const { loading, error, data } = useQuery(gqlEvents);
+    const { loading, error, data } = useQuery(gqlEvents, {
+        fetchPolicy: 'cache-and-network',
+    });
+
     const events = (data && data.event) || [];
-    const { t } = useTranslation();
-    const classes = useStyles();
 
     return (
         <Layout loading={loading} error={error}>
-            <Box>
+            <Grid container spacing={2}>
                 {events.map(event => (
-                    <Card key={event.id}>
-                        <Text color={classes.colors.black}>{event.name}</Text>
-                        <br />
-                        <EventDelete eventId={event.id} />
-                        <Link
-                            to={{
-                                pathname: '/eventUpdate/' + event.id,
-                            }}
-                        >
-                            <Button variant="outlined" color="secondary">
-                                {t('EventEdit')}
-                            </Button>
-                        </Link>
-                    </Card>
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={event.id}>
+                        <Card>
+                            <CardHeader
+                                action={
+                                    <CardActions>
+                                        <EventDeleteButton eventId={event.id} />
+                                        <EventEditButton eventId={event.id} />
+                                    </CardActions>
+                                }
+                                title={event.name}
+                                subheader={event.id}
+                            />
+                            <CardContent>
+                                <Typography variant="h5" component="h2">
+                                    ...
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
                 ))}
+            </Grid>
+            <Box mt="25px">
+                <EventCreateButton />
             </Box>
-            <br />
-            <Link to="/eventCreate">
-                <Button variant="outlined" color="primary">
-                    {t('EventCreate')}
-                </Button>
-            </Link>
         </Layout>
     );
 }

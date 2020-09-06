@@ -10,7 +10,7 @@ import { SizeContext } from '../context/SizeContext';
 import EventCreate from './pages/EventCreate/EventCreate';
 import EventUpdate from './pages/EventCreate/EventUpdate';
 import EventList from './pages/EventList/EventList';
-import AbstractCreate from './pages/AbstractCreate/AbstractCreate';
+import DynamicCreate from './pages/DynamicForm/DynamicCreate';
 import Impressum from './pages/Impressum/Impressum';
 import 'react-toastify/dist/ReactToastify.min.css';
 
@@ -35,8 +35,8 @@ export default function App() {
                             <Route exact path="/eventUpdate/:eventId">
                                 <EventUpdate />
                             </Route>
-                            <Route exact path="/abstractCreate">
-                                <AbstractCreate />
+                            <Route exact path="/dynamicCreate">
+                                <DynamicCreate />
                             </Route>
                             <Route exact path="/impressum">
                                 <Impressum />
