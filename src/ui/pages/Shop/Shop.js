@@ -4,6 +4,7 @@ import { Box } from '../../components/Base/Base';
 import SliderDiv from './components/SliderDiv';
 import SliderItem from './components/SliderItem';
 import Nav from './components/Nav';
+import Layout from '../../templates/Layout';
 export default function Shop() {
     const settings = {
         arrows: true,
@@ -53,11 +54,10 @@ export default function Shop() {
     ];
 
     return (
-        <Box as="div" width="100%" height="100vh">
+        <Layout mobileFooter={<p>Footer</p>}>
             <Nav />
-
             <SliderDiv>
-                <Slider {...settings} >
+                <Slider {...settings}>
                     {items.map(item => (
                         <SliderItem
                             imageSrc={item.src}
@@ -69,6 +69,6 @@ export default function Shop() {
                     ))}
                 </Slider>
             </SliderDiv>
-        </Box>
+        </Layout>
     );
 }
