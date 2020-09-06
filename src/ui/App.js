@@ -14,10 +14,10 @@ import Shop from './pages/Shop/Shop';
 import EventSetup from './pages/EventSetup/EventSetup';
 import UserSearch from './pages/UserSearch/UserSearch';
 import CompanyRegistration from './pages/CompanyRegistration/CompanyRegistration';
-import CreateRecording from './pages/CreateRecording/CreateRecording';
+import CreateAnswer from './pages/CreateAnswer/CreateAnswer';
 
 export default function App() {
-    let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
+    let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.sm})`);
 
     return (
         <ErrorBoundary>
@@ -45,8 +45,8 @@ export default function App() {
                                 <Route path="/companyRegistration">
                                     <CompanyRegistration />
                                 </Route>
-                                <Route path="/createRecording">
-                                    <CreateRecording />
+                                <Route path="/createAnswer">
+                                    <CreateAnswer />
                                 </Route>
                             </Switch>
                         </SizeContext.Provider>

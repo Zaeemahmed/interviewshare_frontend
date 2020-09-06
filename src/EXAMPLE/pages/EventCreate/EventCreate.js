@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import 'date-fns';
 import { useMutation } from '@apollo/client';
-import { v4 as uuid } from 'uuid';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 import ValidationSchema from '../../components/ValidationSchema/EventSchema';
@@ -34,10 +33,8 @@ export default function EventCreate() {
 
     const onSubmit = (values, { setSubmitting, setFieldError }) => {
         setTimeout(() => {
-            const UUID = uuid();
             insertEvent({
                 variables: {
-                    id: UUID,
                     ...values,
                 },
             })
