@@ -46,7 +46,6 @@ export default function FormCustomQuestion() {
                                 borderRadius: '31px',
                                 padding: '10px 10px',
                                 outline: 'none',
-                                border: 'none',
                                 fontSize: '20px',
                                 width: '50%',
                                 border: '1px solid #2074D5',
