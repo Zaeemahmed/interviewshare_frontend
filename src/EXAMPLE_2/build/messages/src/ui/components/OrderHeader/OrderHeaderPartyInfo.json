@@ -1,0 +1,18 @@
+[
+  {
+    "id": "OrderHeader.3846229649",
+    "defaultMessage": "No Incoterms given"
+  },
+  {
+    "id": "OrderHeader.2811330990",
+    "defaultMessage": "Incoterms differ"
+  },
+  {
+    "id": "OrderHeader.576792254",
+    "defaultMessage": "Order Reference"
+  },
+  {
+    "id": "OrderHeader.1457146184",
+    "defaultMessage": "not available"
+  }
+]

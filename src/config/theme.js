@@ -6,6 +6,15 @@ breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 breakpoints.xxl = breakpoints[4];
 
+const colors = {
+    black: '#000',
+    darkgrey: '#191919',
+    mediumgrey: '#595959',
+    green: '#0de99a',
+    grey: '#f8f9fa',
+    white: '#fff',
+};
+
 export default {
     fontSizes: [], // [10, 12, 14, 16, 20, 24, 30, 38]
     fontWeights: {
@@ -16,12 +25,15 @@ export default {
         bold: '700',
         // bolder: '700',
     },
-    colors: {
-        black: '#000',
-        white: '#fff',
-        green: '#0de99a',
-        grey: '#f8f9fa',
-        darkgrey: '#191919',
+    colors: colors,
+    borders: {
+        default: '1px solid ' + colors.mediumgrey,
+    },
+    borderRadius: {
+        default: '8px',
+    },
+    backgrounds: {
+        app: colors.grey,
     },
     space: [], // [0, 4, 8, 16, 32, 64, 128, 256]
     // fonts: {

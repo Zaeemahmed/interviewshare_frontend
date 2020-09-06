@@ -6,16 +6,16 @@ export default function Duration() {
         <Box
             style={{
                 background: '#DEF7F4',
-                borderRadius: '0.4rem',
+                borderRadius: '6px',
             }}
         >
             <Typography
                 style={{
                     fontFamily: 'Roboto',
                     color: '#057666',
-                    fontSize: '0.8rem',
+                    fontSize: '14px'
                 }}
-                variant="h6"
+                variant="p"
             >
                 2 days
             </Typography>

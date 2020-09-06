@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Text, Button } from '../../../components/Base/Base';
+import { Box, Text } from '../../../components/Base/Base';
+import { Button } from '../../../components/Base/Button';
 export default function SliderItem({ children, imageSrc, title, price }) {
     return (
         <Box

@@ -1,13 +1,10 @@
-import React, { useContext } from 'react';
-import { SizeContext } from '../../../context/SizeContext';
-import LandingPageMobile from './LandingPageMobile';
-import LandingPageDesktop from './LandingPageDesktop';
+import React from 'react';
+import Layout from '../../templates/Layout';
 
 export default function Landingpage() {
-    const isDesktop = useContext(SizeContext);
-
-    return <>{!isDesktop ? <LandingPageMobile /> : <LandingPageDesktop />}</>;
-
-
-    
+    return (
+        <Layout mobileFooter={<p>Footer</p>}>
+            <h3>Landingpage stufftest</h3>
+        </Layout>
+    );
 }

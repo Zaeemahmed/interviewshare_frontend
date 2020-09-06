@@ -1,0 +1,1 @@
+test('TeamMember renders', () => {});

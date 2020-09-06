@@ -1,0 +1,22 @@
+[
+  {
+    "id": "OrderDocuments.DocumentListHeader.592431918",
+    "defaultMessage": "no AWB provided"
+  },
+  {
+    "id": "OrderDocuments.DocumentListHeader.3173627820",
+    "defaultMessage": "Shipment Documents"
+  },
+  {
+    "id": "OrderDocuments.DocumentListHeader.115660693",
+    "defaultMessage": "Shipment {shipmentIndex}"
+  },
+  {
+    "id": "OrderDocuments.DocumentListHeader.4261656490",
+    "defaultMessage": "Customer AWB"
+  },
+  {
+    "id": "OrderDocuments.DocumentListHeader.37727499",
+    "defaultMessage": "Supplier AWB"
+  }
+]
