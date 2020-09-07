@@ -13,9 +13,8 @@ export default function Duration() {
                 style={{
                     fontFamily: 'Roboto',
                     color: '#057666',
-                    fontSize: '14px'
+                    fontSize: '14px',
                 }}
-                variant="p"
             >
                 2 days
             </Typography>

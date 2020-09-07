@@ -5,8 +5,9 @@ export const event = gql`
         event(id: $id) {
             name
             email
-            meeting_date
+            date
             message
         }
     }
 `;
+

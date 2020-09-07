@@ -9,7 +9,7 @@ import { Text } from '../Base/Base';
 import FormControl from './FormControl';
 
 const DatePickerField = ({ name, error, register }) => {
-    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedDate, setSelectedDate] = useState();
     const handleDateChange = date => {
         setSelectedDate(date);
     };
@@ -30,16 +30,16 @@ const DatePickerField = ({ name, error, register }) => {
                     width: '100%',
                     borderRadius: '10px',
                 }}
+                inputRef={register}
                 helperText={error ? error.message : ''}
                 error={Boolean(error)}
                 onChange={handleDateChange}
-                inputRef={register}
             />
         </MuiPickersUtilsProvider>
     );
 };
 
-const DatePicker = ({label, ...rest}) => {
+const DatePicker = ({ label, ...rest }) => {
     return (
         <FormControl>
             <Text fontFamily="Roboto" letterSpacing="0.02rem" color="#777D7D">
