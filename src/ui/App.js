@@ -14,6 +14,10 @@ import Shop from './pages/Shop/Shop';
 import EventSetup from './pages/EventSetup/EventSetup';
 import UserSearch from './pages/UserSearch/UserSearch';
 import CompanyRegistration from './pages/CompanyRegistration/CompanyRegistration';
+import LoginUser from './pages/LoginUser/LoginUser';
+import CustomQuestion from './pages/CustomQuestion/CustomQuestion';
+import PremiumPlan from './pages/PremiumPlan/PremiumPlan';
+import RegisterUser from '../ui/pages/RegisterUser/RegisterUser';
 import CreateAnswer from './pages/CreateAnswer/CreateAnswer';
 
 export default function App() {
@@ -32,6 +36,21 @@ export default function App() {
                                 </Route>
                                 <Route exact path="/shop">
                                     <Shop />
+                                </Route>
+                                <Route exact path="/registration">
+                                    <RegisterUser />
+                                </Route>
+                                <Route exact path="/login">
+                                    <LoginUser />
+                                </Route>
+                                <Route exact path="/shop">
+                                    <Shop />
+                                </Route>
+                                <Route exact path="/createquestion">
+                                    <CustomQuestion />
+                                </Route>
+                                <Route exact path="/premium">
+                                    <PremiumPlan />
                                 </Route>
                                 <Route path="/impressum">
                                     <Impressum />
