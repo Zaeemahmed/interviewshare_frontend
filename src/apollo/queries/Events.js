@@ -2,11 +2,11 @@ import { gql } from '@apollo/client';
 
 export const events = gql`
     query Events {
-        event {
+        events {
             id
             name
             email
-            meeting_date
+            date
             message
         }
     }

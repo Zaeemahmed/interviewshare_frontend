@@ -1,6 +1,5 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { Box } from '../../components/Base/Base';
 import SliderDiv from './components/SliderDiv';
 import SliderItem from './components/SliderItem';
 import Nav from './components/Nav';

@@ -1,18 +1,39 @@
 import React from 'react';
+import { useMutation } from '@apollo/client';
 import { yupResolver } from '@hookform/resolvers';
 import { useForm } from 'react-hook-form';
 import { Grid, Button } from '@material-ui/core';
-import TextInput from '../../../components/Formik/TextInput';
+import TextInput from '../../../components/ReactFormHookTypes/TextInput';
 import { Flex, Box } from '../../../components/Base/Base';
 import { validationSchema } from './ValidationSchema';
+import {
+    CompanyRegistration,
+    cacheCompanies,
+} from '../../../../apollo/Mutations/companyRegistration';
 
 const CompanyRegistrationForm = () => {
     const { register, handleSubmit, errors } = useForm({
-        mode: 'all', //onChange, onBlur, onSubmit, onTouched 
+        mode: 'all', //onChange, onBlur, onSubmit, onTouched
         resolver: yupResolver(validationSchema),
     });
 
-    const onSubmit = data => console.log(data);
+    const [companyRegistration] = useMutation(CompanyRegistration, {
+        update: cacheCompanies,
+    });
+
+    const onSubmit = ({ name, address, countryAndCity, vatNumber }, e) => {
+        const id = '2';
+        companyRegistration({
+            variables: {
+                id,
+                name,
+                address,
+                countryAndCity,
+                vatNumber,
+            },
+        });
+        e.target.reset();
+    };
     return (
         <Grid container>
             <Grid item xs={12}>
@@ -20,7 +41,7 @@ const CompanyRegistrationForm = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <TextInput
                             label="Company name"
-                            name="companyName"
+                            name="name"
                             placeholder="Insert company name here"
                             multiline={false}
                             register={register}

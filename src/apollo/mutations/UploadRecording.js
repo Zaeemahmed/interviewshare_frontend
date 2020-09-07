@@ -1,5 +1,5 @@
-import { gql } from '@apollo/client';
-import { recordings } from '../queries/Recordings';
+import { gql } from './node_modules/@apollo/client';
+import { recordings } from '../Queries/Recordings';
 
 export const uploadRecording = gql`
     mutation UploadRecording($file: Upload!) {

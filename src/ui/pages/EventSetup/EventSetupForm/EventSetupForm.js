@@ -1,20 +1,39 @@
 import React from 'react';
+import { useMutation } from '@apollo/client';
 import { yupResolver } from '@hookform/resolvers';
+import { v4 as uuid } from 'uuid';
 import { useForm } from 'react-hook-form';
 import { Button } from '@material-ui/core';
-import TextInput from '../../../components/Formik/TextInput';
-import DatePicker from '../../../components/Formik/DatePicker';
+import TextInput from '../../../components/ReactFormHookTypes/TextInput';
+import DatePicker from '../../../components/ReactFormHookTypes/DatePicker';
 import { Box, Flex } from '../../../components/Base/Base';
 import { Grid } from '../../../components/Base/Grid';
 import { validationSchema } from './ValidationSchema';
+import { InsertEvent, cacheInsertEvent } from '../../../../apollo/Mutations/InsertEvent';
 
 const EventSetupForm = () => {
     const { register, handleSubmit, errors } = useForm({
-        mode: 'all',//onChange, onBlur, onSubmit, onTouched 
+        mode: 'all', //onChange, onBlur, onSubmit, onTouched
         resolver: yupResolver(validationSchema),
     });
 
-    const onSubmit = data => console.log(data);
+    const [insertEvent] = useMutation(InsertEvent, {
+        update: cacheInsertEvent
+    });
+
+    const onSubmit = ({ name, email, date, message }, e) => {
+        const id = uuid();
+        insertEvent({
+            variables: {
+                id,
+                name,
+                email,
+                date,
+                message,
+            },
+        });
+        e.target.reset();
+    };
     return (
         <Grid container>
             <Grid item xs={12}>

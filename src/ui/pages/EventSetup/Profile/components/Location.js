@@ -15,7 +15,6 @@ export default function Location() {
                     fontSize: '14px',
                     letterSpacing: '0.03em',
                 }}
-                variant="p"
             >
                 Berlin, Germany
             </Typography>
