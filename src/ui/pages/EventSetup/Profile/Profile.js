@@ -15,12 +15,13 @@ const Profile = () => {
             <Grid item xs={9}>
                 <Username />
                 <UserOccupation />
-                <Grid item xs={12} container spacing={2} alignItems="center">
+                <Grid item xs={12} container alignItems="center">
                     <Grid
                         item
                         xs={4}
                         style={{ textAlign: 'center', padding: '0.1rem' }}
                         justify="flex-end"
+                        container 
                     >
                         <Duration />
                     </Grid>

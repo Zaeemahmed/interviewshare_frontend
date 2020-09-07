@@ -4,7 +4,6 @@ import { Typography } from '@material-ui/core';
 export default function Username() {
     return (
         <Typography
-            variant="p"
             style={{
                 fontFamily: 'PT Serif',
                 fontWeight: 'bold',

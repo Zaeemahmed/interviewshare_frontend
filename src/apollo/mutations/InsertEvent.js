@@ -1,30 +1,22 @@
 import { gql } from '@apollo/client';
-import { events } from '../queries/Events';
+import { events } from '../Queries/Events';
 
-export const gqlInsertEvent = gql`
+export const InsertEvent = gql`
     mutation InsertEvent(
-        $id: uuid
-        $name: String
-        $email: String
-        $meeting_date: timestamptz
-        $message: String
+        $id: ID!
+        $name: String!
+        $email: String!
+        $date: Date
+        $message: String!
     ) {
-        insert_event(
-            objects: {
-                id: $id
-                name: $name
-                email: $email
-                meeting_date: $meeting_date
-                message: $message
-            }
+        insertEvent(
+            id: $id
+            name: $name
+            email: $email
+            date: $date
+            message: $message
         ) {
-            returning {
-                id
-                name
-                email
-                meeting_date
-                message
-            }
+            id
         }
     }
 `;
@@ -33,9 +25,9 @@ export const cacheInsertEvent = (cache, { data }) => {
     const existingEvents = cache.readQuery({
         query: events,
     });
-    const newEvent = data.insert_event.returning[0];
+    const newEvent = data.insertEvent.id;
     cache.writeQuery({
         query: events,
-        data: { event: [newEvent, ...existingEvents.event] },
+        data: { events: [newEvent, ...existingEvents.events] },
     });
 };

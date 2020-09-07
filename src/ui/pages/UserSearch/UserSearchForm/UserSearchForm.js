@@ -2,9 +2,9 @@ import React from 'react';
 import { yupResolver } from '@hookform/resolvers';
 import { useForm } from 'react-hook-form';
 import { Grid, Button } from '@material-ui/core';
-import TextInput from '../../../components/Formik/TextInput';
+import TextInput from '../../../components/ReactFormHookTypes/TextInput';
 import { Flex, Box } from '../../../components/Base/Base';
-import DatePicker from '../../../components/Formik/DatePicker';
+import DatePicker from '../../../components/ReactFormHookTypes/DatePicker';
 import { validationSchema } from './ValidationSchema';
 
 const UserSearchForm = () => {
@@ -12,7 +12,7 @@ const UserSearchForm = () => {
         mode: 'all',
         resolver: yupResolver(validationSchema),
     });
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {console.log(data)};
     return (
         <Grid container mt="1rem">
             <Grid item xs={12}>

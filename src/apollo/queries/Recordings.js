@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from './node_modules/@apollo/client';
 
 export const recordings = gql`
     query Recordings{

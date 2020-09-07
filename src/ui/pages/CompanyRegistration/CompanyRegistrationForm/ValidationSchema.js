@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 
 export const validationSchema = Yup.object().shape({
-    companyName: Yup.string()
+    name: Yup.string()
         .required('company name is required')
         .min(3, 'company name with at least 3 character'),
     address: Yup.string()

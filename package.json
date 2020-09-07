@@ -38,6 +38,7 @@
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5",
     "typescript": "^3.9.7",
+    "uuid": "^8.3.0",
     "voicerecorder": "^1.0.10",
     "yup": "^0.29.3"
   },
