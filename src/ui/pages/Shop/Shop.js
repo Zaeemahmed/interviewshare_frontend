@@ -4,6 +4,7 @@ import SliderDiv from './components/SliderDiv';
 import SliderItem from './components/SliderItem';
 import Nav from './components/Nav';
 import Layout from '../../templates/Layout';
+
 export default function Shop() {
     const settings = {
         arrows: true,

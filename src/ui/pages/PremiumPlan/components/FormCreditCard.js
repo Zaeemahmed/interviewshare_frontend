@@ -1,22 +1,29 @@
 import React from 'react';
-import { Box } from '../../../components/Base/Base';
+import { Box, Flex } from '../../../components/Base/Base';
 import { useForm } from 'react-hook-form';
+import { TextField } from '@material-ui/core';
+import theme from '../../../../config/theme';
 
 export default function FormCreditCard() {
     const { errors, handleSubmit, register } = useForm();
     const onSubmit = values => console.log(values);
     return (
         <Box>
-            <form onSubmit={handleSubmit(onSubmit)} style={{ color: 'red' }}>
-                <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>Card Number</label>
-                    <input
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                style={{ color: theme.colors.red }}
+            >
+                <Flex flexDirection="column">
+                    <label style={{ color: theme.colors.labelGray }}>
+                        Card Number
+                    </label>
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         minLength="12"
@@ -31,18 +38,18 @@ export default function FormCreditCard() {
                         })}
                     />
                     {errors.creditnum && errors.creditnum.message}
-                </Box>
-                <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>
+                </Flex>
+                <Flex flexDirection="column">
+                    <label style={{ color: theme.colors.labelGray }}>
                         Expiration date (MM/YY)
                     </label>
-                    <input
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         name="expiration"
@@ -54,19 +61,19 @@ export default function FormCreditCard() {
                         })}
                     />
                     {errors.expiration && errors.expiration.message}
-                </Box>
+                </Flex>
 
-                <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>
+                <Flex flexDirection="column">
+                    <label style={{ color: theme.colors.labelGray }}>
                         Security number (CVV/CVC)
                     </label>
-                    <input
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         minLength="4"
@@ -80,17 +87,19 @@ export default function FormCreditCard() {
                         })}
                     />
                     {errors.security && errors.security.message}
-                </Box>
+                </Flex>
 
-                <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>Name on the card</label>
-                    <input
+                <Flex flexDirection="column">
+                    <label style={{ color: theme.colors.labelGray }}>
+                        Name on the card
+                    </label>
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         name="namecard"
@@ -102,17 +111,19 @@ export default function FormCreditCard() {
                         })}
                     />
                     {errors.namecard && errors.namecard.message}
-                </Box>
+                </Flex>
 
-                <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>Adress</label>
-                    <input
+                <Flex flexDirection="column">
+                    <label style={{ color: theme.colors.labelGray }}>
+                        Adress
+                    </label>
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         name="adress"
@@ -124,14 +135,14 @@ export default function FormCreditCard() {
                         })}
                     />
                     {errors.adress && errors.adress.message}
-                </Box>
+                </Flex>
 
                 <button
                     style={{
                         marginTop: '60px',
-                        background: '#2074D5',
+                        background: theme.colors.btnBlue,
                         borderRadius: '31px',
-                        color: 'white',
+                        color: theme.colors.white,
                         padding: '10px 40px',
                         outline: 'none',
                         border: 'none',

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Box } from '../../components/Base/Base';
+import { Box, Flex } from '../../components/Base/Base';
 import { useForm } from 'react-hook-form';
+import { TextField } from '@material-ui/core';
+import theme from '../../../config/theme';
 
 export default function RegisterUser() {
     const { handleSubmit, register, errors } = useForm();
@@ -9,27 +11,32 @@ export default function RegisterUser() {
         <Box
             height="100%"
             position="relative"
-            backgroundColor="white"
+            backgroundColor={theme.colors.white}
             padding="10px"
         >
-            <Box as="h1" color="black" fontSize="40px">
+            <Box as="h1" color={theme.colors.black} fontSize="40px">
                 Sign Up
             </Box>
-            <Box as="p" color="black" fontSize="14px">
+            <Box as="p" color={theme.colors.black} fontSize="14px">
                 You privacy is important. You can delete anytime. Add this
                 Interview Recording to your CV, to make it faster for your
                 future colleagues to get to know you. This service is free!
             </Box>
-            <form onSubmit={handleSubmit(onSubmit)} style={{ color: 'red' }}>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                style={{ color: theme.colors.red }}
+            >
                 <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>Email</label>
-                    <input
+                    <label style={{ color: theme.colors.labelGray }}>
+                        Email
+                    </label>
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         name="email"
@@ -43,15 +50,17 @@ export default function RegisterUser() {
                     />
                     {errors.email && errors.email.message}
                 </Box>
-                <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>Password</label>
-                    <input
+                <Flex flexDirection="column">
+                    <label style={{ color: theme.colors.labelGray }}>
+                        Password
+                    </label>
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         minLength="10"
@@ -66,16 +75,18 @@ export default function RegisterUser() {
                         })}
                     />
                     {errors.password && errors.password.message}
-                </Box>
-                <Box display="flex" flexDirection="column">
-                    <label style={{ color: '#777D7D' }}>Job Title</label>
-                    <input
+                </Flex>
+                <Flex flexDirection="column">
+                    <label style={{ color: theme.colors.labelGray }}>
+                        Job Title
+                    </label>
+                    <TextField
                         required={true}
                         style={{
                             borderRadius: '8px',
                             padding: '14px',
-                            background: '#F5F5F5',
-                            borderColor: '#F5F5F5',
+                            background: theme.colors.bgGrayLight,
+                            borderColor: theme.colors.bgGrayLight,
                             outline: 'none',
                         }}
                         type="text"
@@ -83,13 +94,13 @@ export default function RegisterUser() {
                         ref={register({ minLength: 2 })}
                     />
                     {errors.job && errors.job.message}
-                </Box>
-                <Box
+                </Flex>
+                <Flex
                     display="flex"
                     width="100%"
                     alignItems="center"
                     justifyContent="center"
-                    background="#EFF0F0"
+                    background={theme.colors.bgGrayLight}
                     borderRadius="8px"
                     marginTop="10px"
                 >
@@ -99,16 +110,16 @@ export default function RegisterUser() {
                         width="50%"
                         height="20px"
                     ></Box>
-                    <Box as="p" width="50%" color="black">
+                    <Box as="p" width="50%" color={theme.colors.black}>
                         I agree to Terms of Service and Privacy Policy
                     </Box>
-                </Box>
+                </Flex>
                 <button
                     style={{
                         marginTop: '60px',
-                        background: '#2074D5',
+                        background: theme.colors.btnBlue,
                         borderRadius: '31px',
-                        color: 'white',
+                        color: theme.colors.white,
                         padding: '10px 40px',
                         outline: 'none',
                         border: 'none',
