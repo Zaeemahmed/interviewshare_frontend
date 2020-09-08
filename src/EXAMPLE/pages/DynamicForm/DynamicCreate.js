@@ -99,6 +99,10 @@ export default function DynamicCreate() {
                     pageCount={pageCount}
                     parsedOptions={parsedOptions}
                     parsedHiddenFields={parsedHiddenFields}
+                    event={
+                        dataDynamicFormDefinition
+                            .abstract_submission_system_by_pk.fk_event
+                    }
                 ></DynamicForm>
             )}
         </Layout>

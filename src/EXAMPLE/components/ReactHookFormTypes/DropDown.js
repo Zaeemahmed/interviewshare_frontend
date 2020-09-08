@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { default as MuiSelect } from '@material-ui/core/Select';
 import { MenuItem } from '@material-ui/core';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const Select = props => {
     return (
@@ -21,6 +22,9 @@ const Select = props => {
                     </MenuItem>
                 ))}
             </MuiSelect>
+            <FormHelperText>
+                {props.errors[props.name] && props.errors[props.name].message}
+            </FormHelperText>
         </FormControl>
     );
 };

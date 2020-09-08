@@ -2,9 +2,9 @@ import * as Yup from 'yup';
 
 const getType = field => {
     switch (field.field_type.name) {
-        /*case 'Checkbox':
-            return Yup.array();
-        case 'DateTimePicker':
+        // case 'Checkbox':
+        //     return Yup.array();
+        /*case 'DateTimePicker':
             return Yup.mixed();
         case 'Number':
             return Yup.number();
@@ -23,13 +23,29 @@ export const DynamicValidation = fields => {
         let fieldName;
         for (let i = 0; i < fields.length; i++) {
             fieldName = fields[i].db_field_name || fields[i].name;
+
             fieldValidations[fieldName] = getType(fields[i]);
 
             // Is Required
             if (fields[i].is_required) {
-                fieldValidations[fieldName] = fieldValidations[
-                    fieldName
-                ].concat(Yup.string().required(`Required`));
+                if (fields[i].field_type.name === 'Checkbox') {
+                    fieldValidations[fieldName] = fieldValidations[
+                        fieldName
+                    ].concat(
+                        Yup.array().min(
+                            fields[i].selections_min || 1,
+                            `Must have at least ${fields[i].selections_min} selections`
+                        )
+                    );
+                } else if (fields[i].field_type.name === 'Toggle') {
+                    fieldValidations[fieldName] = fieldValidations[
+                        fieldName
+                    ].concat(Yup.mixed().notOneOf([false], 'Must be checked'));
+                } else {
+                    fieldValidations[fieldName] = fieldValidations[
+                        fieldName
+                    ].concat(Yup.string().required(`Required`));
+                }
             }
 
             // Min Length
@@ -52,6 +68,18 @@ export const DynamicValidation = fields => {
                     Yup.string().max(
                         fields[i].max_length,
                         `Must have no more than ${fields[i].max_length} characters`
+                    )
+                );
+            }
+
+            // Selections Min
+            if (fields[i].selections_min) {
+                fieldValidations[fieldName] = fieldValidations[
+                    fieldName
+                ].concat(
+                    Yup.array().min(
+                        fields[i].selections_min,
+                        `Must have at least ${fields[i].selections_min} selections`
                     )
                 );
             }
