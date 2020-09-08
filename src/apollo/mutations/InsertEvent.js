@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-import { events } from '../queries/Events';
+import { events } from '../Queries/Events';
 
 export const InsertEvent = gql`
     mutation InsertEvent(

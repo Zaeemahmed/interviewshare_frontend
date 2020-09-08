@@ -12,6 +12,10 @@ const AnswerRecording = ({ upload, src }) => {
     const options = {
         audioBitsPerSecond: 128000,
     };
+
+    navigator.permissions.query({name: 'microphone'}).then(permissionStatus => {
+        console.log(permissionStatus.state);
+    })
     return (
         <Flex
             mt="2rem"

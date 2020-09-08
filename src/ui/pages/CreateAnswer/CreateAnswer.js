@@ -6,9 +6,7 @@ import AnswerRecording from './components/AnswerRecording/AnswerRecording';
 import Layout from '../../templates/Layout';
 
 const CreateAnswer = () => {
-    const [src, setSrc] = useState(
-        'http://alexkatz.me/codepen/music/interlude.mp3'
-    );
+    const [src, setSrc] = useState('');
 
     const tempUpload = blob => {
         const reader = new FileReader();
