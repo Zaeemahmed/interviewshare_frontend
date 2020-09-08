@@ -1,5 +1,4 @@
 import React from 'react';
-import { Controller } from 'react-hook-form';
 import {
     FormControlLabel,
     Radio,
@@ -9,33 +8,25 @@ import {
 } from '@material-ui/core';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
-const RadioGroupComponent = ({ useLabelAsValue = true, ...props }) => {
+const RadioGroup = ({ useLabelAsValue = true, ...props }) => {
     return (
         <FormControl component="fieldset">
             <FormLabel component="legend">{props.label}</FormLabel>
-            <MuiRadioGroup {...props}>
+            <MuiRadioGroup name={props.name} control={props.control}>
                 {props.options.map(option => (
                     <FormControlLabel
                         key={option.value}
                         value={useLabelAsValue ? option.label : option.value}
                         label={option.label}
                         control={<Radio />}
+                        inputRef={props.register}
                     />
                 ))}
             </MuiRadioGroup>
-            <FormHelperText>{props.error}</FormHelperText>
+            <FormHelperText>
+                {props.errors[props.name] && props.errors[props.name].message}
+            </FormHelperText>
         </FormControl>
-    );
-};
-
-const RadioGroup = ({ ...props }) => {
-    return (
-        <Controller
-            as={RadioGroupComponent}
-            defaultValue=""
-            error={props.errors[props.name] ? true : undefined}
-            {...props}
-        />
     );
 };
 

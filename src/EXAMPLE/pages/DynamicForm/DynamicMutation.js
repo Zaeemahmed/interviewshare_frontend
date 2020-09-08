@@ -1,26 +1,58 @@
 import { gql } from '@apollo/client';
-import { gqlAbstracts } from '../../../data/Abstract/Abstracts';
 
-export const dynamicInsertAbstractMutation = fields => {
-    let inputVariables = '';
-    let inputObjects = '';
-
+export const dynamicInsertAbstractMutation = (fields, event) => {
+    let abstractVars = '';
+    let abstractObjects = '';
+    let participantVars = '';
+    let participantObjects = '';
+    let hasParticipants = false;
     for (let i = 0; i < fields.length; i++) {
         if (fields[i].db_field_name) {
-            inputVariables += `$${fields[i].db_field_name}: String\n`;
-            inputObjects += `${fields[i].db_field_name}: $${fields[i].db_field_name}\n`;
+            let explodedDBFieldName = fields[i].db_field_name.split('__');
+            if (explodedDBFieldName.length > 1) {
+                if (explodedDBFieldName[0] === 'participant') {
+                    hasParticipants = true;
+                    participantVars += `$${fields[i].db_field_name}: String\n`;
+                    participantObjects += `${fields[i].db_field_name}: $${fields[i].db_field_name}\n`;
+                } else {
+                    abstractVars += `$${fields[i].db_field_name}: String\n`;
+                    abstractObjects += `${fields[i].db_field_name}: $${fields[i].db_field_name}\n`;
+                }
+            }
         }
     }
-    inputVariables = inputVariables.substr(0, inputVariables.length - 1);
-    inputObjects = inputObjects.substr(0, inputObjects.length - 1);
+    abstractVars = abstractVars.substr(0, abstractVars.length - 1);
+    abstractObjects = abstractObjects.substr(0, abstractObjects.length - 1);
 
+    participantVars = participantVars.substr(0, participantVars.length - 1);
+    participantVars = hasParticipants ? participantVars : '';
+
+    participantObjects = participantObjects.substr(
+        0,
+        participantObjects.length - 1
+    );
+
+    const gqlParticipants = hasParticipants
+        ? `
+        participant: {
+            data: {
+                fk_event: "${event}"
+                ${participantObjects}
+            }
+        }`
+        : '';
+
+    //TODO remove hardcoded fk_author !
     return gql`
         mutation InsertAbstract(
-        ${inputVariables}
+        ${participantVars}
+        ${abstractVars}
         ) {
             insert_abstract(
                 objects: {
-                    ${inputObjects}
+                    fk_author: "9c887270-fc32-4312-98ba-cc07f635ab6c"
+                    ${gqlParticipants}
+                    ${abstractObjects}
                 } 
             )
             {
@@ -30,19 +62,4 @@ export const dynamicInsertAbstractMutation = fields => {
             }
         }
     `;
-};
-
-export const cacheInsertAbstract = (cache, { data }) => {
-    const newAbstract = data.insert_abstract.returning[0];
-    const existingAbstracts = cache.readQuery({
-        query: gqlAbstracts,
-    });
-    let newAbstracts = [newAbstract];
-    if (existingAbstracts && existingAbstracts.length > 0) {
-        newAbstracts = [newAbstract, ...existingAbstracts.abstract];
-    }
-    cache.writeQuery({
-        query: gqlAbstracts,
-        data: { abstract: newAbstracts },
-    });
 };

@@ -15,10 +15,7 @@ import RadioGroup from '../../components/ReactHookFormTypes/RadioGroup';
 import CheckboxGroup from '../../components/ReactHookFormTypes/CheckboxGroup';
 import FroalaWYSIWYG from '../../components/ReactHookFormTypes/FroalaWYSIWYG';
 import { DynamicValidation } from './DynamicValidation';
-import {
-    dynamicInsertAbstractMutation,
-    cacheInsertAbstract,
-} from './DynamicMutation';
+import { dynamicInsertAbstractMutation } from './DynamicMutation';
 
 const DynamicForm = ({
     history,
@@ -26,27 +23,38 @@ const DynamicForm = ({
     fields,
     parsedOptions,
     parsedHiddenFields,
+    event,
 }) => {
     const { t } = useTranslation();
-    const { handleSubmit, getValues, errors, control } = useForm({
+    const { handleSubmit, getValues, errors, control, register } = useForm({
         resolver: yupResolver(DynamicValidation(fields)),
     });
     const [insertAbstract, { loading: loadingInsertAbstract }] = useMutation(
-        dynamicInsertAbstractMutation(fields),
-        {
+        dynamicInsertAbstractMutation(fields, event)
+        /*{
             update: cacheInsertAbstract,
-        }
+        }*/
     );
 
     const onSubmit = (data, e) => {
+        console.log('### DynamicForm data', data);
+        let variables = {};
+        const databaseToFieldSeperator = '__';
+
+        Object.keys(data).forEach(value => {
+            let explodedDBFieldName = value.split(databaseToFieldSeperator);
+            //only add form field if it has an db_field_name AND a corresponding value
+            if (explodedDBFieldName.length > 1 && data[value]) {
+                //cast all field values to string to be back-end compliant
+                variables[value] = '' + data[value];
+            }
+        });
         insertAbstract({
-            variables: {
-                ...data,
-            },
+            variables: variables,
         });
     };
     const onError = (errors, e) => {
-        console.log(errors, e);
+        console.warn('Validation Error', errors);
     };
 
     const values = getValues();
@@ -80,6 +88,7 @@ const DynamicForm = ({
                                     <TextInput
                                         name={fieldName}
                                         control={control}
+                                        register={register}
                                         label={label(f)}
                                         hintmessage={
                                             f.field_translations[0].hint_message
@@ -91,6 +100,7 @@ const DynamicForm = ({
                                         <NumberInput
                                             name={fieldName}
                                             control={control}
+                                            register={register}
                                             label={label(f)}
                                             hintmessage={
                                                 f.field_translations[0]
@@ -103,6 +113,7 @@ const DynamicForm = ({
                                         <DatePicker
                                             name={fieldName}
                                             control={control}
+                                            register={register}
                                             label={label(f)}
                                             hintmessage={
                                                 f.field_translations[0]
@@ -115,6 +126,7 @@ const DynamicForm = ({
                                         <DateTimePicker
                                             name={fieldName}
                                             control={control}
+                                            register={register}
                                             label={label(f)}
                                             hintmessage={
                                                 f.field_translations[0]
@@ -127,6 +139,7 @@ const DynamicForm = ({
                                         <DropDown
                                             name={fieldName}
                                             control={control}
+                                            register={register}
                                             label={label(f)}
                                             errors={errors}
                                             options={parsedOptions[f.id]}
@@ -142,12 +155,14 @@ const DynamicForm = ({
                                                 f.field_translations[0]
                                                     .hint_message
                                             }
+                                            register={register}
                                         />
                                     )) ||
                                     (f.field_type.name === 'Radio' && (
                                         <RadioGroup
                                             name={fieldName}
                                             control={control}
+                                            register={register}
                                             label={label(f)}
                                             errors={errors}
                                             hintmessage={
@@ -161,6 +176,7 @@ const DynamicForm = ({
                                         <CheckboxGroup
                                             name={fieldName}
                                             control={control}
+                                            register={register}
                                             label={label(f)}
                                             errors={errors}
                                             hintmessage={
@@ -175,6 +191,7 @@ const DynamicForm = ({
                                         <FroalaWYSIWYG
                                             name={fieldName}
                                             control={control}
+                                            register={register}
                                             label={label(f)}
                                             errors={errors}
                                             options={parsedOptions[f.id]}
