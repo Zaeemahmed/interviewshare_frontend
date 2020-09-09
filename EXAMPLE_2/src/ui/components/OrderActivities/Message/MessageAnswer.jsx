@@ -3,7 +3,7 @@ import IconUserInitials from '@/ui/atoms/Icons/IconUserInitials';
 import { useCurrentUser } from '@/api/Context/UserContext';
 import { formattedDate } from '@/ui/_helpers/DateTime';
 import { Flex, Box } from '@/ui/atoms/Base';
-import MessageText from '../Message/MessageText';
+import MessageText from './MessageText';
 
 /**
  * Renders an Answer for a Message

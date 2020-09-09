@@ -12,7 +12,7 @@
         "lint:fix": "eslint --fix src/**/*.{js,jsx}",
         "styleguide": "styleguidist server",
         "styleguide:build": "styleguidist build",
-        "translations": "node ./translationRunner.js"
+        "translations": "node translationRunner.js"
     },
     "lint-staged": {
         "*.{js,jsx,json,html,css,md}": [

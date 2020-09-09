@@ -45,7 +45,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .js,.jsx .spec.js",
     "lint:fix": "eslint src --ext .js,.jsx --fix --no-error-on-unmatched-pattern",
-    "extract-messages": "NODE_ENV=development babel ./src  --out-file /dev/null",
+    "extract-messages": "NODE_ENV=development babel src  --out-file /dev/null",
     "cypress": "cypress open",
     "workboxStart": "workbox injectManifest"
   },

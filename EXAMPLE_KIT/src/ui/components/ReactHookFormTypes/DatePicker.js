@@ -5,7 +5,7 @@ import {
     DatePicker as MuiDatePicker,
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
-import InfoIconButton from '../../components/Base/InfoIconButton';
+import InfoIconButton from '../Base/InfoIconButton';
 
 const DatePicker = ({ ...props }) => {
     return (
