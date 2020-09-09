@@ -9,8 +9,9 @@ describe('Company form', () => {
     beforeEach(() => {
         mount(<CompanyRegistraction />);
 
-        cy.get('input[name="name"]').as('name');
-        cy.get('input[name="address"]').as('address');
+        cy.get('input[name=name]').as('name');
+        cy.get('input[name=address]').as('address');
+        cy.get('input[name=vatNumber]').as('vatNumber');
 
         // companyUser
         cy.fixture('users/companyUser.json', 'utf-8').then(company => {
@@ -49,5 +50,47 @@ describe('Company form', () => {
             .click()
             .type(this.company.regularAddress)
             .should(/*assert accepted*/);
+    });
+
+    it('assert optional vat number', () => {
+        cy.get('@vatNumber')
+            .click()
+            .type('{enter}')
+            .should(/*assert pass*/);
+    });
+});
+
+describe('create user company', () => {
+    beforeEach(() => {
+        mount(<CompanyRegistraction />);
+
+        cy.get('input[name=name]').as('name');
+        cy.get('input[name=address]').as('address');
+        cy.get('input[name=vatNumber]').as('vatNumber');
+        cy.get('input[name=countryAndCity]').as('countryAndCity');
+
+        // companyUser
+        cy.fixture('users/companyUser.json', 'utf-8').then(company => {
+            // text context
+            this.company = company;
+        });
+    });
+
+    it('create a new company on submit', () => {
+        cy.get('@name')
+            .click()
+            .type(this.company.companyName);
+
+        cy.get('@address')
+            .click()
+            .type(this.company.address);
+
+        cy.get('@countryAndCity')
+            .click()
+            .type(this.company.countryAndCity);
+
+        cy.get('@vatNumber')
+            .click()
+            .type(this.company.vatNumber);
     });
 });
