@@ -19,6 +19,7 @@ import CustomQuestion from './pages/CustomQuestion/CustomQuestion';
 import PremiumPlan from './pages/PremiumPlan/PremiumPlan';
 import RegisterUser from '../ui/pages/RegisterUser/RegisterUser';
 import CreateAnswer from './pages/CreateAnswer/CreateAnswer';
+import PreLandingpage from './pages/PreLandingpage/PreLandingpage';
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: ${theme.breakpoints.sm})`);
@@ -31,7 +32,7 @@ export default function App() {
                         <AppStyle />
                         <SizeContext.Provider value={isDesktop}>
                             <Switch>
-                                <Route exact path="/">
+                                <Route exact path="/landingPage">
                                     <Landingpage />
                                 </Route>
                                 <Route exact path="/shop">
@@ -42,9 +43,6 @@ export default function App() {
                                 </Route>
                                 <Route exact path="/login">
                                     <LoginUser />
-                                </Route>
-                                <Route exact path="/shop">
-                                    <Shop />
                                 </Route>
                                 <Route exact path="/createquestion">
                                     <CustomQuestion />
@@ -66,6 +64,9 @@ export default function App() {
                                 </Route>
                                 <Route path="/createAnswer">
                                     <CreateAnswer />
+                                </Route>
+                                <Route path="/">
+                                    <PreLandingpage />
                                 </Route>
                             </Switch>
                         </SizeContext.Provider>

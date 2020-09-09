@@ -5,12 +5,11 @@ import FormControl from './FormControl';
 
 const TextInput = ({
     label,
-    name,
-    placeholder,
     multiline,
     rows,
     register,
     error,
+    ...rest
 }) => {
     return (
         <FormControl>
@@ -18,7 +17,6 @@ const TextInput = ({
                 {label}
             </Text>
             <TextField
-                name={name}
                 variant="outlined"
                 size="small"
                 style={{
@@ -28,10 +26,10 @@ const TextInput = ({
                 fullWidth
                 multiline={multiline}
                 rows={rows ? rows : 1}
-                placeholder={placeholder}
                 error={error ? true : false}
                 inputRef={register}
                 helperText={error ? error.message: ''}
+                {...rest}
             />
         </FormControl>
     );
