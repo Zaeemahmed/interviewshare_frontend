@@ -1,5 +1,5 @@
-# maximiliangarmatsch.com
-www.maximiliangarmatsch.com is my main portfolio item that also uses my personal frontend-boilerplate. 
+# https://www.interviewshare.de
+Practice your phone interview, append it to your CV, get feedback from the community.
 
 ### 1. Setup
 ```
@@ -7,9 +7,3 @@ npm install
 npm start
 ```
 
-#### Working Tools / Code Quality Tools
-- Commitlint: makes sure that commit messages are formatted nicely.
-- ESLint: Formats code nicely and shows typos.
-- Prettier
-- Babel
-- ....
