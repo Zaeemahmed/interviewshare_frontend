@@ -11,6 +11,7 @@ describe('Company form', () => {
 
         cy.get('input[name="name"]').as('name');
         cy.get('input[name="address"]').as('address');
+        cy.get('input[name="vatNumber"]').as('vatNumber');
 
         // companyUser
         cy.fixture('users/companyUser.json', 'utf-8').then(company => {
@@ -49,5 +50,12 @@ describe('Company form', () => {
             .click()
             .type(this.company.regularAddress)
             .should(/*assert accepted*/);
+    });
+
+    it('assert irregular address', () => {
+        cy.get('@address')
+            .click()
+            .type('aa')
+            .should(/*assert fail*/);
     });
 });
