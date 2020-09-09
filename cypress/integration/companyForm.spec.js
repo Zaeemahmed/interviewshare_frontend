@@ -1,33 +1,18 @@
 ///<reference types="cypress"/>
 
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { mount } from 'cypress-react-unit-test';
-import CompanyRegistraction from './CompanyRegistration';
-
 describe('Company form', () => {
     beforeEach(() => {
-        mount(<CompanyRegistraction />);
-
-        cy.get('input[name=name]').as('name');
-        cy.get('input[name=address]').as('address');
-        cy.get('input[name=vatNumber]').as('vatNumber');
-
-        // companyUser
-        cy.fixture('users/companyUser.json', 'utf-8').then(company => {
-            // text context
-            this.company = company;
-        });
+        cy.visit('/companyRegistraction');
     });
 
-    it('check for form heading', () => {
-        cy.contains(/Search for your next candidate/i).should('be.visible');
+    it.only().('check for form heading', () => {
+        cy.contains('Search for your next candidate').should('be.visible');
     });
 
     it('assert reqular name', () => {
-        cy.get('@name')
+        cy.get('input[name="name"')
             .click()
-            .type(this.company.companyName)
+            .type('XYZ Limited')
             .should(/*assert accepted*/);
     });
 
@@ -62,7 +47,7 @@ describe('Company form', () => {
 
 describe('create user company', () => {
     beforeEach(() => {
-        mount(<CompanyRegistraction />);
+        cy.visit('/companyForm');
 
         cy.get('input[name=name]').as('name');
         cy.get('input[name=address]').as('address');
@@ -92,5 +77,7 @@ describe('create user company', () => {
         cy.get('@vatNumber')
             .click()
             .type(this.company.vatNumber);
+
+        cy.get('button').click();
     });
 });
