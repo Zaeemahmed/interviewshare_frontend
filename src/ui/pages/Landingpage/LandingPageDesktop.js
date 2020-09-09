@@ -1,10 +1,12 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../templates/Layout';
 import { Box } from '../../components/Base/Base';
 import IconButtonBig from './components/IconButtonBig';
 
 export default function LandingPageDesktop() {
+    const { t } = useTranslation();
+
     return (
         <Layout>
             <Box
@@ -19,7 +21,7 @@ export default function LandingPageDesktop() {
             >
                 <Box height="50px" width="70%" mt="25px">
                     <IconButtonBig to="/achievements">
-                        <FormattedMessage defaultMessage="Learn more" />
+                        {t('Learn more')}
                     </IconButtonBig>
                 </Box>
             </Box>
