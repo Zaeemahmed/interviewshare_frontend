@@ -29,7 +29,7 @@ class AudioPlayer extends React.Component {
             this.howler = null;
         }
         this.howler = new Howl({
-            src: this.props.src,
+            src: [this.props.src],
             onload: () => {
                 this.setState({
                     currentTime: this.howler.seek(),

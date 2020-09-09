@@ -5,7 +5,10 @@ import PauseIcon from '@material-ui/icons/Pause';
 const PauseRecording = ({ onClick }) => {
     return (
         <Circle bgColor="#D6E4F5">
-            <PauseIcon style={{ color: '#2074D5' }} onClick={onClick} />
+            <PauseIcon
+                style={{ color: '#2074D5', cursor: 'pointer' }}
+                onClick={onClick}
+            />
         </Circle>
     );
 };

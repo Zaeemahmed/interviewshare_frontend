@@ -45,7 +45,7 @@ const CompanyRegistrationForm = () => {
                             placeholder="Insert company name here"
                             multiline={false}
                             register={register}
-                            error={errors.companyName}
+                            error={errors.name}
                         />
                         <TextInput
                             label="Address"

@@ -11,6 +11,7 @@ const RecordingControls = ({ src }) => {
     const { start, pause, stop } = useVoiceRecorder();
     const [status, setStatus] = useState('inactive');
     const [playing, setPlaying] = useState(false);
+
     return (
         <Box width="100%">
             {status === 'saved' && (
