@@ -9,7 +9,10 @@ import DatePicker from '../../../components/ReactFormHookTypes/DatePicker';
 import { Box, Flex } from '../../../components/Base/Base';
 import { Grid } from '../../../components/Base/Grid';
 import { validationSchema } from './ValidationSchema';
-import { InsertEvent, cacheInsertEvent } from '../../../../apollo/Mutations/InsertEvent';
+import {
+    InsertEvent,
+    cacheInsertEvent,
+} from '../../../../apollo/Mutations/InsertEvent';
 
 const EventSetupForm = () => {
     const { register, handleSubmit, errors } = useForm({
@@ -18,7 +21,7 @@ const EventSetupForm = () => {
     });
 
     const [insertEvent] = useMutation(InsertEvent, {
-        update: cacheInsertEvent
+        update: cacheInsertEvent,
     });
 
     const onSubmit = ({ name, email, date, message }, e) => {
