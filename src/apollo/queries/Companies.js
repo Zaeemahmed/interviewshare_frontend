@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const companies = gql`
-    query Companies{
-        companies{
+    query Companies {
+        companies {
             id
             name
             address
@@ -11,4 +11,3 @@ export const companies = gql`
         }
     }
 `;
-

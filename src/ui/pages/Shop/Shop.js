@@ -4,6 +4,7 @@ import SliderDiv from './components/SliderDiv';
 import SliderItem from './components/SliderItem';
 import Nav from './components/Nav';
 import Layout from '../../templates/Layout';
+
 export default function Shop() {
     const settings = {
         arrows: true,
@@ -40,7 +41,7 @@ export default function Shop() {
         },
         {
             src:
-                'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.takeshape.io%2F1f1d0876-be74-4b33-99c8-6ac93f1d70db%2Fdev%2Fb998e714-c99e-463e-af27-fca874b3a881%2Fhenrik-hansen-1415978-unsplash.jpg%3Fauto%3Dcompress%252Cformat&f=1&nofb=1',
+                'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2F3b%2F21%2F79%2F3b2179fc8020f022c95b814eb23af3e0--men-eyeglasses-glasses-for-men.jpg&f=1&nofb=1',
             title: 'Syze Luani',
             price: '40',
             description:

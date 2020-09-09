@@ -13,6 +13,11 @@ const colors = {
     green: '#0de99a',
     grey: '#f8f9fa',
     white: '#fff',
+    bgGrayLight: '#F5F5F5',
+    btnBlue: '#2074D5',
+    btnLightBlue: ' #D6E4F5',
+    red: 'red',
+    labelGray: '#777D7D',
 };
 
 export default {
