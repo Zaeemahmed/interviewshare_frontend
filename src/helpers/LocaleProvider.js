@@ -1,5 +1,5 @@
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
+import React from 'react';
+import { IntlProvider } from 'react-intl';
 import { translations } from '../locales';
 
 const language = (
@@ -10,25 +10,12 @@ const language = (
 const userLocale = ['de', 'en'].includes(language) ? language : 'en';
 const messages = translations[userLocale];
 
-i18n.use(initReactI18next) // passes i18n down to react-i18next
-    .init({
-        resources: {
-            en: {
-                translation: messages,
-            },
-        },
-        lng: userLocale,
-        fallbackLng: 'en',
-
-        interpolation: {
-            escapeValue: false,
-        },
-    });
-
 function LocaleProvider({ children }) {
-    //TODO: get dynamic label translations via GraphQL Query
-
-    return children;
+    return (
+        <IntlProvider locale={userLocale} messages={messages}>
+            {children}
+        </IntlProvider>
+    );
 }
 
 export default LocaleProvider;
