@@ -6,3 +6,7 @@ Practice your phone interview. Append it to your CV. Get feedback from the commu
 npm install
 npm start
 ```
+
+
+Copyright:
+This is a private repository. All Files are owned by Coder Consulting International S.R.L
