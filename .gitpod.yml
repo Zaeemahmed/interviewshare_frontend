@@ -16,7 +16,3 @@ ports:
     onOpen: open-browser
   - port: 10000
     onOpen: ignore
-
-vscode:
-  extensions:
-    - eamodio.gitlens@10.2.1:WIWu3zHU4VPT8r/v866LUw==
