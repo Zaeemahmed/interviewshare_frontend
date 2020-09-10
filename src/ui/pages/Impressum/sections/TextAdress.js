@@ -1,17 +1,19 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Text } from '../../../components/Base/Base';
 
 export default function TextAdress() {
+    const { t } = useTranslation();
+
     return (
         <Text fontSize={{ xxl: '18px' }} color="white" marginBottom="1.5rem">
-            <FormattedMessage defaultMessage="Maximilian Garmatsch" />
+            {t('Maximilian Garmatsch')}
             <br />
-            <FormattedMessage defaultMessage="Bornheimer Landstrasse 37" />
+            {t('Bornheimer Landstrasse 37')}
             <br />
-            <FormattedMessage defaultMessage="60316 Frankfurt am Main" />
+            {t('60316 Frankfurt am Main"')}
             <br />
-            <FormattedMessage defaultMessage="mail@maximiliangarmatsch.com" />
+            {t('mail@maximiliangarmatsch.com')}
             <br />
         </Text>
     );

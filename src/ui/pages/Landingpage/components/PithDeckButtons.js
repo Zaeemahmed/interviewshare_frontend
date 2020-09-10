@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Box, Flex } from '../../../components/Base/Base';
 import { SizeContext } from '../../../../context/SizeContext';
 import IconButtonBig from './IconButtonBig';
 
 export default function PithDeckButtons() {
     const isDesktop = useContext(SizeContext);
+    const { t } = useTranslation();
 
     const height = {
         _: '65px',
@@ -41,18 +42,18 @@ export default function PithDeckButtons() {
         >
             <Box height={height} width={width} mr={{ _: '30px', sm: '30px' }}>
                 <IconButtonBig href="https://drive.google.com/file/d/1-xzY0WGZLQCKny2e5iR5I_HzVYZywGWD/view?usp=sharing">
-                    <FormattedMessage defaultMessage="Do Business digital" />
+                    {t('Do Business digital')}
                 </IconButtonBig>
             </Box>
             <Box height={height} width={width}>
                 <IconButtonBig href="https://drive.google.com/file/d/1-24y50zMtUwQBaF6YDM10jEvp9x-odwd/view?usp=sharing">
                     {isDesktop ? (
-                        <FormattedMessage defaultMessage="Start-Up fresh" />
+                        t('Start-Up fresh')
                     ) : (
                         <>
-                            <FormattedMessage defaultMessage="Start-Up" />
+                            {t('Start-Up')}
                             <br />
-                            <FormattedMessage defaultMessage="fresh" />
+                            {t('fresh')}
                         </>
                     )}
                 </IconButtonBig>

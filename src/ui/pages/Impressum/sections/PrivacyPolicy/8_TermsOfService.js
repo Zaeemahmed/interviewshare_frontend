@@ -1,30 +1,19 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { H2, P } from '../../components/Base';
-import { Text } from '../../../../components/Base/Base';
 
 export default function TermsOfService() {
+    const { t } = useTranslation();
+
     return (
         <div>
             <H2>
-                <FormattedMessage
-                    defaultMessage="1. Information Collection,{linebreak} Use, and Sharing"
-                    values={{
-                        linebreak: <br />,
-                    }}
-                />
+                {t(`1. Information Collection,${(<br />)} Use, and Sharing`)}
             </H2>
             <P>
-                <FormattedMessage
-                    defaultMessage="When you use Maximilian Franz Peter Garmatsch Service, you are subject and bound to the <span>Terms of Service.</span>"
-                    values={{
-                        span: chunks => (
-                            <Text as="span" color="white">
-                                {chunks}
-                            </Text>
-                        ),
-                    }}
-                />
+                {t(
+                    `When you use Maximilian Franz Peter Garmatsch Service, you are subject and bound to the <span>Terms of Service.`
+                )}
             </P>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { H1 } from '../components/Base';
 import AcceptanceOfTOS from './TermsOfService/1_AcceptanceOfTOS';
 import DescriptionOfService from './TermsOfService/2_DescriptionOfService';
@@ -16,11 +16,11 @@ import ChangesToTOS from './TermsOfService/12_ChangesToTOS';
 import Jurisdiction from './TermsOfService/13_Jurisdiction';
 
 export default function TextTermsOfService() {
+    const { t } = useTranslation();
+
     return (
         <div>
-            <H1>
-                <FormattedMessage defaultMessage="Terms of Service" />
-            </H1>
+            <H1>{t('Terms of Service')}</H1>
             <AcceptanceOfTOS />
             <DescriptionOfService />
             <Purchases />

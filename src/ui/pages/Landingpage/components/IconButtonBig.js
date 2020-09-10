@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '../../../components/Base/Base';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default function IconButtonBig() {
     return (
@@ -25,7 +25,6 @@ export default function IconButtonBig() {
                 boxSizing="border-box "
                 textDecoration="none"
                 marginTop="20px"
-                
             >
                 <Box
                     as="img"
@@ -82,15 +81,15 @@ export default function IconButtonBig() {
                 </Box>
             </Box>
             <Box
-            as={Link}
-            to="/shop"
-            height="35px"
-            backgroundColor="#31C4BF"
-            padding="7px 15px 7px 10px "
-            fontSize="20px"
-            marginTop="20px"
-            borderRadius="10px"
-            color="white"
+                as={Link}
+                to="/shop"
+                height="35px"
+                backgroundColor="#31C4BF"
+                padding="7px 15px 7px 10px "
+                fontSize="20px"
+                marginTop="20px"
+                borderRadius="10px"
+                color="white"
             >
                 Shop
             </Box>

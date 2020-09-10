@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Text } from '../../../components/Base/Base';
 import { H1, P } from '../components/Base';
@@ -14,38 +14,30 @@ import TermsOfService from './PrivacyPolicy/8_TermsOfService';
 import ChangesToPrivacyPolicy from './PrivacyPolicy/9_ChangesOfPrivacyPolicy';
 
 export default function TextPrivacyPolicy() {
+    const { t } = useTranslation();
+    const a = chunks => (
+        <Text
+            as={Link}
+            color="white"
+            css={`
+                text-decoration: none;
+                color: #fff !important;
+            `}
+            to="/"
+        >
+            {chunks}
+        </Text>
+    );
     return (
         <div>
-            <H1>
-                <FormattedMessage defaultMessage="Privacy Policy" />
-            </H1>
+            <H1>{t('Privacy Policy')}</H1>
             <P>
-                <FormattedMessage
-                    defaultMessage="This privacy policy discloses the privacy practices for <a>https://maximiliangarmatsch.com</a>  owned and operated by Maximilian Franz Peter Garmatsch. This privacy policy applies solely to information collected by <a>https://maximiliangarmatsch.com</a>. It will notify you of the following:{linebreak}
-                                    What Personally Identifiable and Proprietary Information is collected from you through the web site, how it is used and with whom it may be shared. What choices are available to you regarding the use of your data. The security procedures in place to protect the misuse of your information.How you can correct any inaccuracies in the information.
-                                    "
-                    values={{
-                        a: chunks => (
-                            <Text
-                                as={Link}
-                                color="white"
-                                css={`
-                                    text-decoration: none;
-                                    color: #fff !important;
-                                `}
-                                to="/"
-                            >
-                                {chunks}
-                            </Text>
-                        ),
-                        linebreak: (
-                            <>
-                                <br />
-                                <br />
-                            </>
-                        ),
-                    }}
-                />
+                {t(`This privacy policy discloses the privacy practices for ${(
+                    <a>https://maximiliangarmatsch.com</a>
+                )}  owned and operated by Maximilian Franz Peter Garmatsch. This privacy policy applies solely to information collected by ${(
+                    <a>https://maximiliangarmatsch.com</a>
+                )}. It will notify you of the following:${(<br />)}
+                                    What Personally Identifiable and Proprietary Information is collected from you through the web site, how it is used and with whom it may be shared. What choices are available to you regarding the use of your data. The security procedures in place to protect the misuse of your information.How you can correct any inaccuracies in the information.`)}
             </P>
             <InformationCollection />
             <Children />

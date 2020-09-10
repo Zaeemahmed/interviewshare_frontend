@@ -1,15 +1,16 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useTranslation } from 'react-i18next';
 import { H2, P } from '../../components/Base';
 
 export default function Rescheduling() {
+    const { t } = useTranslation();
     return (
         <div>
-            <H2>
-                <FormattedMessage defaultMessage="6. Rescheduling" />
-            </H2>
+            <H2>{t('6. Rescheduling')}</H2>
             <P>
-                <FormattedMessage defaultMessage="We require a 24 hour notice for rescheduling or cancelling appointments. If you do not contact us to cancel or reschedule before the 24 hour period, a cancellation fee of €50 will be charged." />
+                {t(
+                    'We require a 24 hour notice for rescheduling or cancelling appointments. If you do not contact us to cancel or reschedule before the 24 hour period, a cancellation fee of €50 will be charged.'
+                )}
             </P>
         </div>
     );
