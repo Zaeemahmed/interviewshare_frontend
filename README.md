@@ -8,5 +8,5 @@ npm start
 ```
 
 
-Copywrite:
+Copyright:
 This is a private repository. All Files are owned by Coder Consulting International S.R.L
