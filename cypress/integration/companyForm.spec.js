@@ -1,83 +1,92 @@
 ///<reference types="cypress"/>
 
-describe('Company form', () => {
+describe('Company form validation', () => {
     beforeEach(() => {
-        cy.visit('/companyRegistraction');
+        cy.visit('/companyRegistration');
     });
 
-    it.only().('check for form heading', () => {
+    it('check for form heading', () => {
         cy.contains('Search for your next candidate').should('be.visible');
     });
 
+    it('indicate focus', () => {
+        cy.get('input[name="name"]')
+            .click()
+            .should('have.css', 'border', 'rgb(63,81,181)');
+    });
+
     it('assert reqular name', () => {
-        cy.get('input[name="name"')
+        cy.get('input[name="name"]')
             .click()
             .type('XYZ Limited')
-            .should(/*assert accepted*/);
+            .should('have.css', 'border', 'rgb(63,81,181)');
     });
 
     it('assert french characters', () => {
-        cy.get('@name')
+        cy.get('input[name="name"]')
             .click()
-            .type(this.company.frenchName)
-            .should(/*assert accepted*/);
+            .type('Céntric Example')
+            .should('have.css', 'border', 'rgb(63,81,181)');
     });
 
     it('assert irregular names', () => {
-        cy.get('@name')
+        cy.get('input[name="name"]')
             .click()
-            .type(this.company.irregularName)
-            .should(/*assert rejection*/);
+            .type('xy');
+        cy.get('p[class="Mui-error"]').should('be.visible');
     });
 
     it('assert regular address', () => {
-        cy.get('@address')
+        cy.get('input[name="address"]')
             .click()
-            .type(this.company.regularAddress)
-            .should(/*assert accepted*/);
+            .type('This is over 10 character')
+            .should('have.css', 'border', 'rgb(63,81,181)');
     });
 
-    it('assert optional vat number', () => {
-        cy.get('@vatNumber')
+    it('ignore optional value added tax number', () => {
+        cy.get('input[name="vatNumber"]')
             .click()
             .type('{enter}')
-            .should(/*assert pass*/);
+            .should('have.css', 'border', 'rgb(63,81,181)');
+    });
+
+    it('vat should be a number', () => {
+        cy.get('input[name="vatNumber"]')
+            .click()
+            .type('abcde');
+        cy.get('p[class="Mui-error"]').should('be.visible');
     });
 });
 
 describe('create user company', () => {
     beforeEach(() => {
-        cy.visit('/companyForm');
-
-        cy.get('input[name=name]').as('name');
-        cy.get('input[name=address]').as('address');
-        cy.get('input[name=vatNumber]').as('vatNumber');
-        cy.get('input[name=countryAndCity]').as('countryAndCity');
-
-        // companyUser
-        cy.fixture('users/companyUser.json', 'utf-8').then(company => {
-            // text context
-            this.company = company;
-        });
+        cy.visit('/companyRegistration');
     });
 
-    it('create a new company on submit', () => {
-        cy.get('@name')
-            .click()
-            .type(this.company.companyName);
+    it.only('create a new company on submit', () => {
+        cy.fixture('companyUser.json')
+            .as('company')
+            .then(company => {
+                cy.get('input[name="name"]')
+                    .click()
+                    .type(company.name);
 
-        cy.get('@address')
-            .click()
-            .type(this.company.address);
+                cy.get('input[name="address"]')
+                    .click()
+                    .type(company.address);
 
-        cy.get('@countryAndCity')
-            .click()
-            .type(this.company.countryAndCity);
+                cy.get('input[name="countryAndCity"]')
+                    .click()
+                    .type(company.countryAndCity);
 
-        cy.get('@vatNumber')
-            .click()
-            .type(this.company.vatNumber);
-
-        cy.get('button').click();
+                cy.get('input[name="vatNumber"]')
+                    .click()
+                    .type(company.vatNumber);
+            });
     });
 });
+
+// TODO
+// stub form submision response
+// VAT number format
+// Vat should be a number

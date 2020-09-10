@@ -3,5 +3,7 @@
     "componentFolder": "src",
     "experimentalComponentTesting": true,
     "testFiles": "**/*spec.js",
-    "defaultCommandTimeout": 10000
+    "defaultCommandTimeout": 10000,
+    "pageLoadTimeout": 200000,
+    "video": false
 }
