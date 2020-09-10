@@ -1,21 +1,13 @@
 import React from 'react';
 import { yupResolver } from '@hookform/resolvers';
-import { makeStyles } from '@material-ui/core/styles';
 import { useForm } from 'react-hook-form';
 import { Button } from '@material-ui/core';
-import { Grid } from '../../../components/Base/Grid';
-import { Box, Flex } from '../../../components/Base/Base';
-import TextInput from '../../../components/ReactFormHookTypes/TextInput';
+import { Grid } from '../../../../../components/Base/Grid';
+import { Box, Flex } from '../../../../../components/Base/Base';
+import TextInput from '../../../../../components/ReactFormHookTypes/TextInput';
 import { validationSchema } from './ValidationSchema';
 
-const useStyles = makeStyles({
-    root: {
-        borderRadius : '10px',
-    }
-});
-
 const NotificationForm = () => {
-    const classes = useStyles();
     const { register, handleSubmit, errors } = useForm({
         mode: 'onSubmit', //onChange, onBlur, onSubmit, onTouched
         resolver: yupResolver(validationSchema),
@@ -35,7 +27,6 @@ const NotificationForm = () => {
                             multiline={false}
                             register={register}
                             error={errors.email}
-                            className={classes.root}
                         />
                         <Flex justifyContent="center">
                             <Button
