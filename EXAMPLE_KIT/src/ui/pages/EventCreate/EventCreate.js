@@ -20,7 +20,7 @@ export default function EventCreate() {
         update: cacheInsertEvent,
     });
 
-    const initialValues = {
+    const defaultValues = {
         name: '',
         mnemonic: '',
         start_time: null,
@@ -72,7 +72,7 @@ export default function EventCreate() {
             <EventForm
                 loading={loading}
                 history={history}
-                initialValues={initialValues}
+                defaultValues={defaultValues}
                 validationSchema={ValidationSchema}
                 onSubmit={onSubmit}
                 submitButtonLabel={t('EventCreateSubmit')}

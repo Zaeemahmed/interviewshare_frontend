@@ -10,9 +10,11 @@ import { SizeContext } from '../context/SizeContext';
 import EventCreate from './pages/EventCreate/EventCreate';
 import EventUpdate from './pages/EventCreate/EventUpdate';
 import EventList from './pages/EventList/EventList';
-import DynamicCreate from './pages/DynamicForm/DynamicCreate';
+import AbstractCreate from './pages/AbstractCreate/AbstractCreate';
+import AbstractSummary from './pages/AbstractCreate/AbstractSummary';
 import Impressum from './pages/Impressum/Impressum';
 import 'react-toastify/dist/ReactToastify.min.css';
+import SubmissionSystemCreate from './pages/SubmissionSystemCreate/SubmissionSystemCreate';
 
 export default function App() {
     let isDesktop = useMediaQuery(`(min-width: 768px)`);
@@ -35,8 +37,20 @@ export default function App() {
                             <Route exact path="/eventUpdate/:eventId">
                                 <EventUpdate />
                             </Route>
-                            <Route exact path="/dynamicCreate/:systemId/:page?">
-                                <DynamicCreate />
+                            <Route
+                                exact
+                                path="/abstractCreate/:systemId/:page?"
+                            >
+                                <AbstractCreate />
+                            </Route>
+                            <Route exact path="/abstractSummary/:systemId">
+                                <AbstractSummary />
+                            </Route>
+                            <Route
+                                exact
+                                path="/submissionSystemCreate/:eventId/:tab?"
+                            >
+                                <SubmissionSystemCreate />
                             </Route>
                             <Route exact path="/impressum">
                                 <Impressum />

@@ -5,9 +5,9 @@ import { useQuery } from '@apollo/client';
 import Pagination from '@material-ui/lab/Pagination';
 import { gqlDynamicFormDefinition } from '../../../data/Event/DynamicFormDefinition';
 import Layout from '../../templates/Layout';
-import DynamicForm from './DynamicForm';
+import AbstractForm from './AbstractForm';
 
-export default function DynamicCreate() {
+export default function AbstractCreate() {
     let { page, systemId } = useParams();
     page = parseInt(page, 10) || 1;
     const history = useHistory();
@@ -95,12 +95,12 @@ export default function DynamicCreate() {
                 variant="outlined"
                 shape="rounded"
                 onChange={(e, value) =>
-                    history.push('/dynamicCreate/' + systemId + '/' + value)
+                    history.push('/abstractCreate/' + systemId + '/' + value)
                 }
             />
             {fields && fields.length > 0 && (
-                <DynamicForm
-                    initialValues={dataAbstract}
+                <AbstractForm
+                    defaultValues={dataAbstract}
                     fields={fields}
                     pageCount={pageCount}
                     parsedOptions={parsedOptions}
@@ -111,7 +111,7 @@ export default function DynamicCreate() {
                     }
                     systemId={systemId}
                     page={page}
-                ></DynamicForm>
+                ></AbstractForm>
             )}
         </Layout>
     );

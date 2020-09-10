@@ -1,6 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -38,6 +40,13 @@ export default function EventList() {
                                 subheader={event.id}
                             />
                             <CardContent>
+                                <Link
+                                    to={'/submissionSystemCreate/' + event.id}
+                                >
+                                    <Button variant="outlined">
+                                        Add System
+                                    </Button>
+                                </Link>
                                 <Typography variant="h5" component="h2">
                                     ...
                                 </Typography>

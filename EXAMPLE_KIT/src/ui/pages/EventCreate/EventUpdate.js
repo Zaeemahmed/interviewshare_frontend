@@ -29,7 +29,7 @@ export default function EventUpdate() {
 
     const eventData = (data && data.event[0]) || {};
 
-    let initialValues = {
+    let defaultValues = {
         name: eventData.name,
         mnemonic: eventData.mnemonic,
         start_time: eventData.start_time || null,
@@ -41,12 +41,12 @@ export default function EventUpdate() {
         description: eventData.description || '',
     };
 
-    const onSubmit = (values, { setSubmitting }) => {
+    const onSubmit = values => {
         setTimeout(() => {
             updateEventMutation({
                 variables: {
                     id: eventId,
-                    ...values,
+                    ...{ ...values, is_closed: true },
                 },
             })
                 .then(() => {
@@ -55,10 +55,7 @@ export default function EventUpdate() {
                         t('EventUpdateSuccessful', { name: values.name })
                     );
                 })
-                .catch(DefaultCatch)
-                .finally(() => {
-                    setSubmitting(false);
-                });
+                .catch(DefaultCatch);
         }, 500);
     };
 
@@ -66,7 +63,7 @@ export default function EventUpdate() {
         <Layout loading={loading} error={error}>
             {data && data.event[0] ? (
                 <EventForm
-                    initialValues={initialValues}
+                    defaultValues={defaultValues}
                     loading={mutationLoading}
                     validationSchema={ValidationSchema}
                     onSubmit={onSubmit}

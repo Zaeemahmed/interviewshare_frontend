@@ -13,14 +13,16 @@ const Select = props => {
                 {props.label}
             </InputLabel>
             <MuiSelect name={props.name} {...props}>
-                {props.options.map(option => (
-                    <MenuItem
-                        key={Object.values(option)[0]}
-                        value={Object.values(option)[0]}
-                    >
-                        {Object.values(option)[1]}
-                    </MenuItem>
-                ))}
+                {props.options.map((option, index) => {
+                    return (
+                        <MenuItem
+                            key={props.name + '' + index}
+                            value={option.value}
+                        >
+                            {option.label}
+                        </MenuItem>
+                    );
+                })}
             </MuiSelect>
             <FormHelperText>
                 {props.errors[props.name] && props.errors[props.name].message}

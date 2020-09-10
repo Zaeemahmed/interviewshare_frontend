@@ -15,29 +15,37 @@ import RadioGroup from '../../components/ReactHookFormTypes/RadioGroup';
 import CheckboxGroup from '../../components/ReactHookFormTypes/CheckboxGroup';
 import FroalaWYSIWYG from '../../components/ReactHookFormTypes/FroalaWYSIWYG';
 import { DefaultCatch } from '../../components/Base/Form';
-import { DynamicValidation } from './DynamicValidation';
-import { dynamicInsertAbstractMutation } from './DynamicMutation';
+import { AbstractValidation } from './AbstractValidation';
+import { dynamicInsertAbstractMutation } from './AbstractMutation';
 
-const DynamicForm = ({
+export default function AbstractForm({
     fields,
-    initialValues,
+    defaultValues,
     parsedOptions,
     parsedHiddenFields,
     event,
     systemId,
     page,
     pageCount,
-}) => {
+}) {
     const { t } = useTranslation();
     const history = useHistory();
-    const { handleSubmit, getValues, errors, control, register } = useForm({
-        resolver: yupResolver(DynamicValidation(fields)),
+    const {
+        handleSubmit,
+        getValues,
+        errors,
+        control,
+        register,
+        // watch, //todo
+    } = useForm({
+        resolver: yupResolver(AbstractValidation(fields, parsedHiddenFields)),
     });
+
+    //todo
+    // const withConclusion = watch('With Conclusion');
+
     const [insertAbstract, { loading: loadingInsertAbstract }] = useMutation(
-        dynamicInsertAbstractMutation(fields, event, initialValues.id)
-        /*{
-            update: cacheInsertAbstract,
-        }*/
+        dynamicInsertAbstractMutation(fields, event, defaultValues.id)
     );
 
     const onSubmit = data => {
@@ -56,7 +64,7 @@ const DynamicForm = ({
             .then(() => {
                 hasNextPage(page, pageCount)
                     ? history.push(
-                          '/dynamicCreate/' + systemId + '/' + nextPage
+                          '/abstractCreate/' + systemId + '/' + nextPage
                       )
                     : alert('submission completed'); // summary page displaying entered content with possibilty to go back to specific pages for editing
             })
@@ -99,7 +107,7 @@ const DynamicForm = ({
                                         }
                                         errors={errors}
                                         defaultValue={
-                                            initialValues[f.db_field_name] || ''
+                                            defaultValues[f.db_field_name] || ''
                                         }
                                     />
                                 )) ||
@@ -114,7 +122,7 @@ const DynamicForm = ({
                                             }
                                             errors={errors}
                                             defaultValue={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     )) ||
@@ -129,7 +137,7 @@ const DynamicForm = ({
                                             }
                                             errors={errors}
                                             defaultValue={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     )) ||
@@ -144,7 +152,7 @@ const DynamicForm = ({
                                             }
                                             errors={errors}
                                             defaultValue={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     )) ||
@@ -156,7 +164,7 @@ const DynamicForm = ({
                                             errors={errors}
                                             options={parsedOptions[f.id]}
                                             defaultValue={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     )) ||
@@ -172,7 +180,7 @@ const DynamicForm = ({
                                             }
                                             register={register}
                                             defaultValue={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     )) ||
@@ -189,7 +197,7 @@ const DynamicForm = ({
                                             }
                                             options={parsedOptions[f.id]}
                                             defaultValue={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     )) ||
@@ -207,7 +215,7 @@ const DynamicForm = ({
                                             options={parsedOptions[f.id]}
                                             values={values}
                                             defaultValues={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     )) ||
@@ -219,7 +227,7 @@ const DynamicForm = ({
                                             errors={errors}
                                             options={parsedOptions[f.id]}
                                             defaultValue={
-                                                initialValues[f.db_field_name]
+                                                defaultValues[f.db_field_name]
                                             }
                                         />
                                     ))}
@@ -254,8 +262,7 @@ const DynamicForm = ({
             </Grid>
         </form>
     );
-};
-export default DynamicForm;
+}
 
 const hidden = (f, allValues, parsedHiddenFields) => {
     if (f.is_hidden === 'true') return true;
@@ -264,8 +271,9 @@ const hidden = (f, allValues, parsedHiddenFields) => {
         if (fieldsOperator === 'OR') {
             for (let i = 0; i < exceptionFields.length; i++) {
                 if (
+                    allValues[exceptionFields[i].fieldName] === undefined ||
                     allValues[exceptionFields[i].fieldName] ===
-                    exceptionFields[i].conditionValue
+                        exceptionFields[i].conditionValue
                 ) {
                     return true;
                 }

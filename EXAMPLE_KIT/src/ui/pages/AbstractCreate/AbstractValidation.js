@@ -15,7 +15,7 @@ const getType = field => {
     }
 };
 
-export const DynamicValidation = fields => {
+export const AbstractValidation = (fields, parsedHiddenFields) => {
     let ValidationSchema = null;
 
     if (fields && fields.length > 0) {
@@ -28,23 +28,52 @@ export const DynamicValidation = fields => {
 
             // Is Required
             if (fields[i].is_required) {
-                if (fields[i].field_type.name === 'Checkbox') {
-                    fieldValidations[fieldName] = fieldValidations[
-                        fieldName
-                    ].concat(
-                        Yup.array().min(
-                            fields[i].selections_min || 1,
-                            `Must have at least ${fields[i].selections_min} selections`
-                        )
-                    );
-                } else if (fields[i].field_type.name === 'Toggle') {
-                    fieldValidations[fieldName] = fieldValidations[
-                        fieldName
-                    ].concat(Yup.mixed().notOneOf([false], 'Must be checked'));
+                //check for hidden fields
+                if (fields[i].is_hidden) {
+                    if (fields[i].is_hidden !== 'True') {
+                        const exceptFieldsArray =
+                            parsedHiddenFields[fields[i].id].fields;
+                        for (let a = 0; a < exceptFieldsArray.length; a++) {
+                            console.log(exceptFieldsArray[a]);
+                            fieldValidations[fieldName] = fieldValidations[
+                                fieldName
+                            ].concat(
+                                Yup.string().when(
+                                    exceptFieldsArray[a].fieldName,
+                                    {
+                                        is: val =>
+                                            val !==
+                                            exceptFieldsArray[a].conditionValue,
+                                        then: Yup.string().required(
+                                            'conditionally required'
+                                        ),
+                                        //otherwise: Yup.string().nullable(),
+                                    }
+                                )
+                            );
+                        }
+                    }
                 } else {
-                    fieldValidations[fieldName] = fieldValidations[
-                        fieldName
-                    ].concat(Yup.string().required(`Required`));
+                    if (fields[i].field_type.name === 'Checkbox') {
+                        fieldValidations[fieldName] = fieldValidations[
+                            fieldName
+                        ].concat(
+                            Yup.array().min(
+                                fields[i].selections_min || 1,
+                                `Must have at least ${fields[i].selections_min} selections`
+                            )
+                        );
+                    } else if (fields[i].field_type.name === 'Toggle') {
+                        fieldValidations[fieldName] = fieldValidations[
+                            fieldName
+                        ].concat(
+                            Yup.mixed().notOneOf([false], 'Must be checked')
+                        );
+                    } else {
+                        fieldValidations[fieldName] = fieldValidations[
+                            fieldName
+                        ].concat(Yup.string().required(`Required`));
+                    }
                 }
             }
 

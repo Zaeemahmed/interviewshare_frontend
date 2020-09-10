@@ -18,25 +18,35 @@ export const FormCheckBox = ({ name, value, register, defaultValue }) => {
     );
 };
 
-const CheckboxGroup = ({ defaultValues, useLabelAsValue = true, ...props }) => {
+const CheckboxGroup = ({
+    defaultValues,
+    useLabelAsValue = true,
+    row = false,
+    ...props
+}) => {
     defaultValues = defaultValues.split(',');
 
     return (
         <FormControl component="fieldset">
             <FormLabel component="legend">{props.label}</FormLabel>
-            <FormGroup>
-                {props.options.map((option, i) => {
-                    let value = useLabelAsValue ? option.label : option.value;
-                    return (
-                        <FormCheckBox
-                            key={value}
-                            value={value}
-                            name={`${props.name}[${i}]`}
-                            defaultValue={defaultValues.indexOf(value) !== -1}
-                            {...props}
-                        />
-                    );
-                })}
+            <FormGroup row={row}>
+                {props.options.length > 0 &&
+                    props.options.map((option, i) => {
+                        let value = useLabelAsValue
+                            ? option.label
+                            : option.value;
+                        return (
+                            <FormCheckBox
+                                key={value}
+                                value={value}
+                                name={`${props.name}[${i}]`}
+                                defaultValue={
+                                    defaultValues.indexOf(value) !== -1
+                                }
+                                {...props}
+                            />
+                        );
+                    })}
                 <FormHelperText>
                     {props.errors[props.name] &&
                         props.errors[props.name].message}
